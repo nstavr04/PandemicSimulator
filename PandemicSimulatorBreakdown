@@ -1,0 +1,29 @@
+			PANDEMIC SIMULATOR
+			
+ 	INFECTION: Person -> Person | Different 
+			   Ground -> Person | Percentages
+			   
+	INPUTS: Infection Chance (Person and Environment). 
+			Amount of people.						  
+			Space dimensions.
+			TimeUnits of simulation.		  
+			How long infection lasts on ground.		 
+			Start infected people ( 1 by default).     
+			
+ 	SPACE: 1x1 Boxes. Only 1 person in it					
+		   People have random placement. (people <= boxes)  
+		   
+	PEOPLE MOVEMENT: Every TimeUnit a person has a percentage to move or not.
+					 If he moves -> Random 8 moves around him.
+					 If no other person is there.
+	
+	INFECTION PROCEDURE: Person -> Person ( Certain percentage if theyre in nearby boxes ).
+						 A percentage of people is IMMUNE.
+						 A percentage of people wears MASKS. ( Lower infection rate ).
+						 Ground -> Person ( Percentage < than w/ person )
+						 Person -> Ground (Chance to infect ground the longer he stays the more it increases)
+						 Ground infection decays after some time.
+						 
+	TIME: All moves are run by a clock. ( 1 step = 1 min = 1 TimeUnit )
+	
+	OUTPUT - STATISTICS: A record of all the end results based on the given input parameters.
