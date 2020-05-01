@@ -1,4 +1,4 @@
-package mvasil17_nstavr04_HW6;
+package team1.hw6;
 /**
  * This exception class is used for exception handling when the odds inputs
  * parameters have an unavailable percentage - bigger than 100

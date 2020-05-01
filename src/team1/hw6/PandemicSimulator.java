@@ -1,4 +1,4 @@
-package mvasil17_nstavr04_HW6;
+package team1.hw6;
 
 import java.util.Scanner;
 
