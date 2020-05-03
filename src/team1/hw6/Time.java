@@ -1,4 +1,4 @@
-package mvasil17_nstavr04_HW6;
+package team1.hw6;
 
 /**
  * A time class representing the time needed to leave the infection from the
