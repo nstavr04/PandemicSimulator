@@ -351,9 +351,28 @@ public class PandemicSimulator {
 
 		createHumans(humans, humanNum, infectedHumans, humanMaskPer, humanMovePer, humanInfHumanPer, humanInfGroundPer,
 				humanImmunePer, groundInfHumanPer);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+//		move(humanNum, humans, timeUnits, width, height);
 
-		move(humanNum, humans, timeUnits);
-
+		Grid myGrid2 = new Grid(15, 7);
+		Human humans2[] = new Human[humanNum];			//test
+		createHumans(humans2, humanNum, infectedHumans, humanMaskPer, humanMovePer, humanInfHumanPer, humanInfGroundPer,
+				humanImmunePer, groundInfHumanPer);		//test
+		
+		
+//		move(humanNum, humans2, timeUnits, 15, 7);	//test
+		
+		move(humanNum, humans, timeUnits, width, height, humans2);
+		
+		
 		outputPrint(humanNum, infectedHumans);
 
 	}
@@ -365,16 +384,37 @@ public class PandemicSimulator {
 	 * @param humans
 	 * @param timeUnits
 	 */
-	public static void move(int humanNum, Human humans[], int timeUnits) {
-
-		for (int i = 0; i < timeUnits; i++) {
-
+	public static void move(int humanNum, Human humans[], int timeUnits, int width, int height, Human humans2[]) {
+		boolean flag = true;  	//test
+		int counter = 1;
+		for (int i = 0; i < timeUnits; i++) {		
+			
 			for (int j = 0; j < humanNum; j++) {
+				if (humans[j]!= null && flag == true) {
+				Grid.setWidth(width);
+				Grid.setHeight(height);
 				humans[j].move();
 				humans[j].chanceToBrandTheSpot();
 				humans[j].chanceToGetInfected();
-				StdDraw.show(2500 / humanNum); // 10->200, 20-->100
+				}
+				if (!flag) {
+					
+					Grid.setWidth(15);
+					Grid.setHeight(7);
+					humans2[j].move();
+					humans2[j].chanceToBrandTheSpot();
+					humans2[j].chanceToGetInfected();
+					i--;
+//					if (counter == 3) {
+//						flag = false;
+//						counter=1;
+//					}
+				}
+
+//				StdDraw.show(2500 / humanNum); // 10->200, 20-->100
 			}
+			flag = !flag;
+			StdDraw.show(400); // 10->200, 20-->100
 			Grid.updateGrid();
 		}
 

@@ -56,7 +56,13 @@ public abstract class Human {
 
 	public Human(boolean isInfected, boolean giveMask, boolean immune, int humanMovePer, int humanInfHumanPer,
 			int humanInfGroundPer, int groundInfHumanPer) {
-
+		
+		
+		gridX = Grid.getWidth();		//test
+		gridY = Grid.getHeight();	//test
+		
+		
+		
 		// Keep track of the statistics
 		humanCounter++;
 		if (immune)
