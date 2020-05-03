@@ -17,7 +17,7 @@ public class Grid {
 	private static int height;
 	// All the cells
 	private static Cell[][] c1;
-	
+
 	public Grid(int x, int y) {
 		width = x;
 		height = y;
@@ -157,28 +157,6 @@ public class Grid {
 		return height;
 	}
 
-	
-	
-	
-	/**
-	 * @return the width
-	 */
-	public static void setWidth(int width) {
-		Grid.width = width;
-	}
-
-	/**
-	 * @return the height
-	 */
-	public static void setHeight(int height) {
-		Grid.height = height;
-	}
-	
-	
-	
-	
-	
-	
 	/**
 	 * This method sets in the cell a boolean that determines if it has an infected
 	 * human on it
@@ -202,5 +180,32 @@ public class Grid {
 	public static boolean getHasInfectedHuman(int x, int y) {
 		return c1[x][y].getHasInfectedHuman();
 	}
+
+	
+	
+	
+	
+	//test
+	
+	/**
+	 * @param width the width to set
+	 */
+	public static void setWidth(int width) {
+		Grid.width = width;
+		Human.setGridX(width);
+	}
+
+	/**
+	 * @param height the height to set
+	 */
+	public static void setHeight(int height) {
+		Grid.height = height;
+		Human.setGridY(height);
+	}
+	
+	
+	
+	
+	
 
 }

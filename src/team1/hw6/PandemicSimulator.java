@@ -386,21 +386,22 @@ public class PandemicSimulator {
 	 */
 	public static void move(int humanNum, Human humans[], int timeUnits, int width, int height, Human humans2[]) {
 		boolean flag = true;  	//test
-		int counter = 1;
+		int counter = 1;		//test
 		for (int i = 0; i < timeUnits; i++) {		
 			
 			for (int j = 0; j < humanNum; j++) {
 				if (humans[j]!= null && flag == true) {
-				Grid.setWidth(width);
-				Grid.setHeight(height);
+//				Grid.setWidth(width);
+//				Grid.setHeight(height);
+//				temp Grid = humans[j].getGrid();		gia to mellon
 				humans[j].move();
 				humans[j].chanceToBrandTheSpot();
 				humans[j].chanceToGetInfected();
 				}
 				if (!flag) {
 					
-					Grid.setWidth(15);
-					Grid.setHeight(7);
+//					Grid.setWidth(15);
+//					Grid.setHeight(7);
 					humans2[j].move();
 					humans2[j].chanceToBrandTheSpot();
 					humans2[j].chanceToGetInfected();
@@ -413,7 +414,7 @@ public class PandemicSimulator {
 
 //				StdDraw.show(2500 / humanNum); // 10->200, 20-->100
 			}
-			flag = !flag;
+			flag = !flag;					//test
 			StdDraw.show(400); // 10->200, 20-->100
 			Grid.updateGrid();
 		}

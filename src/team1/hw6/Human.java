@@ -25,8 +25,8 @@ public abstract class Human {
 
 	// Grid dimensions
 
-	private static int gridX = Grid.getWidth();
-	private static int gridY = Grid.getHeight();
+	private static int gridX;
+	private static int gridY;
 
 	// Coordinates of human
 
@@ -319,5 +319,45 @@ public abstract class Human {
 	public static int getMaskCounter() {
 		return maskCounter;
 	}
+	
+	
+	
+	//test
+	/**
+	 * @return the gridX
+	 */
+	public static int getGridX() {
+		return gridX;
+	}
+
+	/**
+	 * @param gridX the gridX to set
+	 */
+	public static void setGridX(int gridX) {
+		Human.gridX = gridX;
+	}
+
+	/**
+	 * @return the gridY
+	 */
+	public static int getGridY() {
+		return gridY;
+	}
+
+	/**
+	 * @param gridY the gridY to set
+	 */
+	public static void setGridY(int gridY) {
+		Human.gridY = gridY;
+	}
+
+
+	
+	
+	
+	
+	
+	
+	
 
 }
