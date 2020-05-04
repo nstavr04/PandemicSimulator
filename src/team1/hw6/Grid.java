@@ -81,7 +81,7 @@ public class Grid {
 	}
 
 	/**
-	 * This static method updates the cells of the Grid. It is removing the
+	 * This method updates the cells of the Grid. It is removing the
 	 * infection from the cell when its time pass 
 	 */
 	public void updateGrid() {
@@ -203,7 +203,9 @@ public class Grid {
 //		Human.setGridY(height);
 	}
 	
-	
+	public void setHumansInGrid() {	//set humans in the Grid grid
+		
+	}
 	
 	
 	

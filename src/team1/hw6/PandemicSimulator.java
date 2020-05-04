@@ -359,7 +359,6 @@ public class PandemicSimulator {
 		
 		
 		
-		
 //		move(humanNum, humans, timeUnits, width, height);
 
 		Grid myGrid2 = new Grid(15, 7);
@@ -369,6 +368,8 @@ public class PandemicSimulator {
 		
 		
 //		move(humanNum, humans2, timeUnits, 15, 7);	//test
+		
+		ControlPanel cp1 = new ControlPanel();
 		
 		move(humanNum, humans, timeUnits, width, height, humans2, myGrid, myGrid2);
 		
@@ -391,8 +392,8 @@ public class PandemicSimulator {
 			
 			for (int j = 0; j < humanNum; j++) {
 				if (humans[j]!= null && flag == true) {
-				myGrid.setWidth(width);
-				myGrid.setHeight(height);
+//				myGrid.setWidth(width);
+//				myGrid.setHeight(height);
 //				temp Grid = humans[j].getGrid();		gia to mellon
 				humans[j].move();
 				humans[j].chanceToBrandTheSpot();
@@ -400,9 +401,8 @@ public class PandemicSimulator {
 				StdDraw.show(400);
 				}
 				if (!flag) {
-					
-					myGrid2.setWidth(15);
-					myGrid2.setHeight(7);
+//					myGrid2.setWidth(15);
+//					myGrid2.setHeight(7);
 					humans2[j].move();
 					humans2[j].chanceToBrandTheSpot();
 					humans2[j].chanceToGetInfected();
@@ -412,10 +412,10 @@ public class PandemicSimulator {
 //						counter=1;
 //					}
 				}
-
+				flag = !flag;
 //				StdDraw.show(2500 / humanNum); // 10->200, 20-->100
 			}
-			flag = !flag;					//test
+								//test
 //			StdDraw.show(400); // 10->200, 20-->100
 			myGrid.updateGrid();
 			myGrid2.updateGrid();

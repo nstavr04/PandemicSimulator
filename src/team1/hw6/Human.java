@@ -355,7 +355,21 @@ public abstract class Human {
 		Human.gridY = gridY;
 	}
 
+	/**
+	 * @return the belongingGrid
+	 */
+	public Grid getBelongingGrid() {
+		return belongingGrid;
+	}
 
+	/**
+	 * @param belongingGrid the belongingGrid to set
+	 */
+	public void setBelongingGrid(Grid belongingGrid) {
+		this.belongingGrid = belongingGrid;
+	}
+
+	
 	
 	
 	
