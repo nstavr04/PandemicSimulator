@@ -62,8 +62,8 @@ public abstract class Human {
 		this.belongingGrid = belongingGrid;	//test
 		
 		
-		gridX = Grid.getWidth();		//test
-		gridY = Grid.getHeight();	//test
+		gridX = belongingGrid.getWidth();		//test
+		gridY = belongingGrid.getHeight();	//test
 		
 		
 		
@@ -97,11 +97,11 @@ public abstract class Human {
 		while (!generated) {
 			curX = (int) (Math.random() * gridX);
 			curY = (int) (Math.random() * gridY);
-			if (!Grid.getBoardPos(curX, curY))
+			if (!belongingGrid.getBoardPos(curX, curY))
 				generated = true;
 		}
 		// marking the pos of the person
-		Grid.setBoardPos(curX, curY, true);
+		belongingGrid.setBoardPos(curX, curY, true);
 	}
 
 	/**
@@ -121,7 +121,7 @@ public abstract class Human {
 				// If not out of bounds
 				if (i >= 0 && i < gridX && j >= 0 && j < gridY) {
 					// If it is a free cell, then its a possible move
-					if (!Grid.getBoardPos(i, j)) {
+					if (!belongingGrid.getBoardPos(i, j)) {
 						xBoard[index] = i;
 						yBoard[index] = j;
 						index++;
@@ -138,9 +138,9 @@ public abstract class Human {
 		nextX = xBoard[index];
 		nextY = yBoard[index];
 		// the previews place is not inhabited now
-		Grid.setBoardPos(curX, curY, false);
+		belongingGrid.setBoardPos(curX, curY, false);
 		// the next place is inhabited now
-		Grid.setBoardPos(nextX, nextY, true);
+		belongingGrid.setBoardPos(nextX, nextY, true);
 		return true;
 	}
 
@@ -231,7 +231,7 @@ public abstract class Human {
 		// only if the human is already infected
 		if (infected == true) {
 			if ((int) (Math.random() * 101) <= humanInfGroundPer) {
-				Grid.setInfectionPos(curX, curY, infected);
+				belongingGrid.setInfectionPos(curX, curY, infected);
 			}
 		}
 	}
@@ -250,7 +250,7 @@ public abstract class Human {
 	 */
 	private void chanceToGetInfectedFromGround() {
 		// if the current cell is infected
-		if (Grid.getInfectionPos(curX, curY) && !infected) {
+		if (belongingGrid.getInfectionPos(curX, curY) && !infected) {
 			// if the human is not immune
 			if (!immune) {
 				if ((int) (Math.random() * 101) <= groundInfHumanPer) {
@@ -273,8 +273,8 @@ public abstract class Human {
 					// If not out of bounds
 					if (i >= 0 && i < gridX && j >= 0 && j < gridY) {
 						// If it is NOT a free cell
-						if (Grid.getBoardPos(i, j)) {
-							if (Grid.getHasInfectedHuman(i, j)) {
+						if (belongingGrid.getBoardPos(i, j)) {
+							if (belongingGrid.getHasInfectedHuman(i, j)) {
 								if ((int) (Math.random() * 101) <= humanInfHumanPer) {
 									this.infected = true;
 									infectedCounter++;
@@ -330,28 +330,28 @@ public abstract class Human {
 	/**
 	 * @return the gridX
 	 */
-	public static int getGridX() {
+	public int getGridX() {
 		return gridX;
 	}
 
 	/**
 	 * @param gridX the gridX to set
 	 */
-	public static void setGridX(int gridX) {
+	public void setGridX(int gridX) {
 		Human.gridX = gridX;
 	}
 
 	/**
 	 * @return the gridY
 	 */
-	public static int getGridY() {
+	public int getGridY() {
 		return gridY;
 	}
 
 	/**
 	 * @param gridY the gridY to set
 	 */
-	public static void setGridY(int gridY) {
+	public void setGridY(int gridY) {
 		Human.gridY = gridY;
 	}
 

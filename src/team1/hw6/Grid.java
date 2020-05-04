@@ -12,11 +12,11 @@ import edu.princeton.cs.introcs.StdDraw;
 public class Grid {
 
 	// X
-	private static int width;
+	private int width;
 	// Y
-	private static int height;
+	private int height;
 	// All the cells
-	private static Cell[][] c1;
+	private Cell[][] c1;
 
 	public Grid(int x, int y) {
 		width = x;
@@ -191,16 +191,16 @@ public class Grid {
 	 * @param width the width to set
 	 */
 	public void setWidth(int width) {
-		Grid.width = width;
-		Human.setGridX(width);
+		this.width = width;
+//		Human.setGridX(width);
 	}
 
 	/**
 	 * @param height the height to set
 	 */
 	public void setHeight(int height) {
-		Grid.height = height;
-		Human.setGridY(height);
+		this.height = height;
+//		Human.setGridY(height);
 	}
 	
 	

@@ -28,13 +28,13 @@ public class MaskedMan extends Human {
 			if (generatePos()) {
 				erase();
 				// it is a free cell, so it hasnt an infected person
-				Grid.setHasInfectedHuman(getCurX(), getCurY(), false);
+				belongingGrid.setHasInfectedHuman(getCurX(), getCurY(), false);
 				updatePosition();
 				generateDirection();
 				// checking to show the correct image
 				if (super.isInfected() == true) {
 					// if he is infected, set it to the cell
-					Grid.setHasInfectedHuman(getNextX(), getNextY(), true);
+					belongingGrid.setHasInfectedHuman(getNextX(), getNextY(), true);
 					if (getDirection() == 1)
 						StdDraw.picture(getNextX() + 0.5, getNextY() + 0.5,
 								"PersonAboveViewSingleMASKEDUPWITHVIRUS.JPG", 0.7, 0.7);
@@ -77,9 +77,9 @@ public class MaskedMan extends Human {
 	public void firstDraw() {
 		startingPos();
 		generateDirection();
-		if (Grid.getHasInfectedHuman(getCurX(), getCurY()))
+		if (belongingGrid.getHasInfectedHuman(getCurX(), getCurY()))
 			// if he is infected, set it to the cell
-			Grid.setHasInfectedHuman(getCurX(), getCurY(), true);
+			belongingGrid.setHasInfectedHuman(getCurX(), getCurY(), true);
 		if (getDirection() == 1)
 			StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleMASKEDUP.JPG", 0.7, 0.7);
 		else if (getDirection() == 2)
