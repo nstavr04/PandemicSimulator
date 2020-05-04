@@ -23,26 +23,23 @@ public class PandemicSimulator {
 		System.out.println("Welcome to PandemicSimulator!");
 		System.out.println();
 
-		System.out.println("Give the width scale of the simulation(max: 50): ");
+		// Get the number of areas
+		System.out.println("Give the number of areas:");
 
-		int width = 0;
+		int areaNum = 0;
 
 		do {
 			try {
 
-				width = Integer.parseInt(scan.nextLine());
+				areaNum = Integer.parseInt(scan.nextLine());
 
-				if (width <= 0)
+				if (areaNum < 0)
 					throw new ExceptionNegativeValue();
-
-				if (width > 50)
-					throw new ExceptionNegativeValue(
-							"Wrong width scale input. Must be less or equal than 50. Try again: ");
 
 				continueInput = false;
 
 			} catch (NumberFormatException e) {
-				System.out.println("Wrong width scale input. Must be a positive number. Try again: ");
+				System.out.println("Wrong number of areas. Must be a positive number. Try again: ");
 			} catch (ExceptionNegativeValue e) {
 				System.out.println(e.getMessage());
 			}
@@ -51,36 +48,76 @@ public class PandemicSimulator {
 
 		continueInput = true;
 
-		System.out.println("Give the height scale of the simulation(max: 40): ");
+		// Array for all the area sizes ( x , y )
+		int[][] areaSizes = new int[areaNum][areaNum];
 
-		int height = 0;
+		int maxHumanNum = 0;
 
-		do {
-			try {
+		// For each area give the size of the corresponding grid
+		for (int i = 0; i < areaNum; i++) {
 
-				height = Integer.parseInt(scan.nextLine());
+			// Width and height declaration
+			areaSizes[i][0] = 0;
+			areaSizes[i][1] = 0;
 
-				if (height <= 0)
-					throw new ExceptionNegativeValue();
+			System.out.println("Give the width scale of the simulation(max: 50): ");
 
-				if (height > 40)
-					throw new ExceptionNegativeValue("Wrong height scale input. Must be less than 40. Try again: ");
+			do {
+				try {
 
-				if (height > width)
-					throw new ExceptionNegativeValue(
-							"Wrong height scale input. Must be less than width(For better display). Try again: ");
+					areaSizes[i][0] = Integer.parseInt(scan.nextLine());
 
-				continueInput = false;
+					if (areaSizes[i][0] <= 0)
+						throw new ExceptionNegativeValue();
 
-			} catch (NumberFormatException e) {
-				System.out.println("Wrong height scale input. Must be a positive number. Try again: ");
-			} catch (ExceptionNegativeValue e) {
-				System.out.println(e.getMessage());
-			}
+					if (areaSizes[i][0] > 50)
+						throw new ExceptionNegativeValue(
+								"Wrong width scale input. Must be less or equal than 50. Try again: ");
 
-		} while (continueInput);
+					continueInput = false;
 
-		continueInput = true;
+				} catch (NumberFormatException e) {
+					System.out.println("Wrong width scale input. Must be a positive number. Try again: ");
+				} catch (ExceptionNegativeValue e) {
+					System.out.println(e.getMessage());
+				}
+
+			} while (continueInput);
+
+			continueInput = true;
+
+			System.out.println("Give the height scale of the simulation(max: 40): ");
+
+			do {
+				try {
+
+					areaSizes[i][1] = Integer.parseInt(scan.nextLine());
+
+					if (areaSizes[i][1] <= 0)
+						throw new ExceptionNegativeValue();
+
+					if (areaSizes[i][1] > 40)
+						throw new ExceptionNegativeValue("Wrong height scale input. Must be less than 40. Try again: ");
+
+					if (areaSizes[i][1] > areaSizes[i][0])
+						throw new ExceptionNegativeValue(
+								"Wrong height scale input. Must be less than width(For better display). Try again: ");
+
+					continueInput = false;
+
+				} catch (NumberFormatException e) {
+					System.out.println("Wrong height scale input. Must be a positive number. Try again: ");
+				} catch (ExceptionNegativeValue e) {
+					System.out.println(e.getMessage());
+				}
+
+			} while (continueInput);
+
+			continueInput = true;
+
+			// Find the max number of humans allowed throughout all grids
+			maxHumanNum += areaSizes[i][0] * areaSizes[i][1];
+		}
 
 		System.out.println("Give the duration of the simulation: ");
 
@@ -117,7 +154,7 @@ public class PandemicSimulator {
 
 				if (humanNum <= 0)
 					throw new ExceptionNegativeValue();
-				if (humanNum > width * height)
+				if (humanNum > maxHumanNum)
 					throw new ExceptionHumanMoreThanGrid();
 
 				continueInput = false;
@@ -347,33 +384,28 @@ public class PandemicSimulator {
 
 		scan.close();
 
-		Grid myGrid = new Grid(width, height);
+		//////////////////////////////////////////////////////////////////////
 
-		createHumans(humans, humanNum, infectedHumans, humanMaskPer, humanMovePer, humanInfHumanPer, humanInfGroundPer,
-				humanImmunePer, groundInfHumanPer, myGrid);
-		
-		
-		
-		
-		
-		
-		
-		
-//		move(humanNum, humans, timeUnits, width, height);
+		//////////////////////////////////////////////////////////////////////
 
-		Grid myGrid2 = new Grid(15, 7);
-		Human humans2[] = new Human[humanNum];			//test
-		createHumans(humans2, humanNum, infectedHumans, humanMaskPer, humanMovePer, humanInfHumanPer, humanInfGroundPer,
-				humanImmunePer, groundInfHumanPer, myGrid2);		//test
-		
-		
-//		move(humanNum, humans2, timeUnits, 15, 7);	//test
-		
-		ControlPanel cp1 = new ControlPanel();
-		
+		// Creating the nessessary arrays for the intializations of control panel
+		Grid[] gridsarr = new Grid[areaNum];
+		Human[][] humansarr = new Human[humanNum][areaNum];
+
+		// Create all nessessary Grid and Human[] objects
+		for (int i = 0; i < areaNum; i++) {
+
+			gridsarr[i] = new Grid(areaSizes[i][0], areaSizes[i][1]);
+
+		}
+
+		ControlPanel controlP = new ControlPanel(humansarr, gridsarr);
+
+		createHumans(humanNum, infectedHumans, humanMaskPer, humanMovePer, humanInfHumanPer, humanInfGroundPer,
+				humanImmunePer, groundInfHumanPer);
+
 		move(humanNum, humans, timeUnits, width, height, humans2, myGrid, myGrid2);
-		
-		
+
 		outputPrint(humanNum, infectedHumans);
 
 	}
@@ -385,20 +417,21 @@ public class PandemicSimulator {
 	 * @param humans
 	 * @param timeUnits
 	 */
-	public static void move(int humanNum, Human humans[], int timeUnits, int width, int height, Human humans2[], Grid myGrid, Grid myGrid2) {
-		boolean flag = true;  	//test
-		int counter = 1;		//test
-		for (int i = 0; i < timeUnits; i++) {		
-			
+	public static void move(int humanNum, Human humans[], int timeUnits, int width, int height, Human humans2[],
+			Grid myGrid, Grid myGrid2) {
+		boolean flag = true; // test
+		int counter = 1; // test
+		for (int i = 0; i < timeUnits; i++) {
+
 			for (int j = 0; j < humanNum; j++) {
-				if (humans[j]!= null && flag == true) {
+				if (humans[j] != null && flag == true) {
 //				myGrid.setWidth(width);
 //				myGrid.setHeight(height);
 //				temp Grid = humans[j].getGrid();		gia to mellon
-				humans[j].move();
-				humans[j].chanceToBrandTheSpot();
-				humans[j].chanceToGetInfected();
-				StdDraw.show(400);
+					humans[j].move();
+					humans[j].chanceToBrandTheSpot();
+					humans[j].chanceToGetInfected();
+					StdDraw.show(400);
 				}
 				if (!flag) {
 //					myGrid2.setWidth(15);
@@ -415,7 +448,7 @@ public class PandemicSimulator {
 				flag = !flag;
 //				StdDraw.show(2500 / humanNum); // 10->200, 20-->100
 			}
-								//test
+			// test
 //			StdDraw.show(400); // 10->200, 20-->100
 			myGrid.updateGrid();
 			myGrid2.updateGrid();
@@ -437,8 +470,8 @@ public class PandemicSimulator {
 	 * @param humanImmunePer
 	 * @param groundInfHumanPer
 	 */
-	public static void createHumans(Human[] hum, int humNum, int infectedHumans, int humanMaskPer, int humanMovePer,
-			int humanInfHumanPer, int humanInfGroundPer, int humanImmunePer, int groundInfHumanPer, Grid grid) {
+	public static void createHumans(int humNum, int infectedHumans, int humanMaskPer, int humanMovePer,
+			int humanInfHumanPer, int humanInfGroundPer, int humanImmunePer, int groundInfHumanPer) {
 
 		boolean isInfected = false;
 
@@ -462,16 +495,19 @@ public class PandemicSimulator {
 			else
 				giveMask = false;
 
+			// Used to determine on which area each human will go
+			int area = (int) (Math.random() * ControlPanel.getNumOfAreas());
+
 			// Make human have infection
 			if (infectedHumans > 0) {
 				isInfected = true;
 
 				if (giveMask)
-					hum[i] = new MaskedMan(isInfected, giveMask, immune, humanMovePer, humanInfHumanPer,
-							humanInfGroundPer, groundInfHumanPer, grid);
+					ControlPanel.getHumans()[i][area] = new MaskedMan(isInfected, giveMask, immune, humanMovePer,
+							humanInfHumanPer, humanInfGroundPer, groundInfHumanPer, ControlPanel.getGrids()[area]);
 				else
-					hum[i] = new Man(isInfected, giveMask, immune, humanMovePer, humanInfHumanPer, humanInfGroundPer,
-							groundInfHumanPer, grid);
+					ControlPanel.getHumans()[i][area] = new Man(isInfected, giveMask, immune, humanMovePer,
+							humanInfHumanPer, humanInfGroundPer, groundInfHumanPer, ControlPanel.getGrids()[area]);
 				infectedHumans--;
 
 				// Create normal human
@@ -484,11 +520,11 @@ public class PandemicSimulator {
 					immune = false;
 
 				if (giveMask)
-					hum[i] = new MaskedMan(isInfected, giveMask, immune, humanMovePer, humanInfHumanPer,
-							humanInfGroundPer, groundInfHumanPer, grid);
+					ControlPanel.getHumans()[i][area] = new MaskedMan(isInfected, giveMask, immune, humanMovePer,
+							humanInfHumanPer, humanInfGroundPer, groundInfHumanPer, ControlPanel.getGrids()[area]);
 				else
-					hum[i] = new Man(isInfected, giveMask, immune, humanMovePer, humanInfHumanPer, humanInfGroundPer,
-							groundInfHumanPer, grid);
+					ControlPanel.getHumans()[i][area] = new Man(isInfected, giveMask, immune, humanMovePer,
+							humanInfHumanPer, humanInfGroundPer, groundInfHumanPer, ControlPanel.getGrids()[area]);
 			}
 
 		}

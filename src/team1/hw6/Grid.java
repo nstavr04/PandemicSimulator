@@ -18,9 +18,13 @@ public class Grid {
 	// All the cells
 	private Cell[][] c1;
 
+	// Keep track on how many humans are on every grid
+	private int humansOnGrid;
+
 	public Grid(int x, int y) {
 		width = x;
 		height = y;
+		humansOnGrid = 0;
 		// Set the proper dimentions the first time
 		SetDimentions(width, height);
 		// Draw the grid lines the first time
@@ -81,8 +85,8 @@ public class Grid {
 	}
 
 	/**
-	 * This method updates the cells of the Grid. It is removing the
-	 * infection from the cell when its time pass 
+	 * This method updates the cells of the Grid. It is removing the infection from
+	 * the cell when its time pass
 	 */
 	public void updateGrid() {
 		for (int i = 0; i < width; i++) {
@@ -102,6 +106,26 @@ public class Grid {
 		}
 	}
 
+	// A method that puts again the humans on the grid
+	public void addHumansOnGrid() {
+		DrawGridLines(this.width, this.height);
+
+		for (int i = 0; i < this.width; i++) {
+			for (int j = 0; j < this.height; j++) {
+				if (c1[i][j].isInfected()) {
+					StdDraw.setPenColor(StdDraw.RED);
+					StdDraw.square(i + 0.5, j + 0.5, 0.45);
+				}
+				if (c1[i][j].isInhabited()) {
+
+				}
+
+			}
+
+		}
+
+	}
+
 	/**
 	 * @return the infection
 	 */
@@ -118,7 +142,7 @@ public class Grid {
 	 * @param infected
 	 */
 	public void setInfectionPos(int x, int y, boolean infected) {
-		c1[x][y].setInfected(x,y,infected);
+		c1[x][y].setInfected(x, y, infected);
 	}
 
 	/**
@@ -181,12 +205,8 @@ public class Grid {
 		return c1[x][y].getHasInfectedHuman();
 	}
 
-	
-	
-	
-	
-	//test
-	
+	// test
+
 	/**
 	 * @param width the width to set
 	 */
@@ -202,12 +222,9 @@ public class Grid {
 		this.height = height;
 //		Human.setGridY(height);
 	}
-	
-	public void setHumansInGrid() {	//set humans in the Grid grid
-		
+
+	public void setHumansOnGrid(int x) { // set humans in the Grid grid
+		humansOnGrid++;
 	}
-	
-	
-	
 
 }
