@@ -84,7 +84,7 @@ public class Grid {
 	 * This static method updates the cells of the Grid. It is removing the
 	 * infection from the cell when its time pass 
 	 */
-	public static void updateGrid() {
+	public void updateGrid() {
 		for (int i = 0; i < width; i++) {
 			for (int j = 0; j < height; j++) {
 				if (c1[i][j].isInfected()) {
@@ -105,7 +105,7 @@ public class Grid {
 	/**
 	 * @return the infection
 	 */
-	public static boolean getInfectionPos(int x, int y) {
+	public boolean getInfectionPos(int x, int y) {
 		return c1[x][y].isInfected();
 	}
 
@@ -117,7 +117,7 @@ public class Grid {
 	 * @param y
 	 * @param infected
 	 */
-	public static void setInfectionPos(int x, int y, boolean infected) {
+	public void setInfectionPos(int x, int y, boolean infected) {
 		c1[x][y].setInfected(x,y,infected);
 	}
 
@@ -128,7 +128,7 @@ public class Grid {
 	 * @param j
 	 * @param inhabited
 	 */
-	public static void setBoardPos(int i, int j, boolean inhabited) {
+	public void setBoardPos(int i, int j, boolean inhabited) {
 		c1[i][j].setInhabited(inhabited);
 	}
 
@@ -139,21 +139,21 @@ public class Grid {
 	 * @param j
 	 * @return
 	 */
-	public static boolean getBoardPos(int x, int y) { // static
+	public boolean getBoardPos(int x, int y) { // static
 		return c1[x][y].isInhabited();
 	}
 
 	/**
 	 * @return the width
 	 */
-	public static int getWidth() {
+	public int getWidth() {
 		return width;
 	}
 
 	/**
 	 * @return the height
 	 */
-	public static int getHeight() {
+	public int getHeight() {
 		return height;
 	}
 
@@ -165,7 +165,7 @@ public class Grid {
 	 * @param y
 	 * @param infected
 	 */
-	public static void setHasInfectedHuman(int x, int y, boolean infected) {
+	public void setHasInfectedHuman(int x, int y, boolean infected) {
 		c1[x][y].setHasInfectedHuman(infected);
 	}
 
@@ -177,7 +177,7 @@ public class Grid {
 	 * @param y
 	 * @return
 	 */
-	public static boolean getHasInfectedHuman(int x, int y) {
+	public boolean getHasInfectedHuman(int x, int y) {
 		return c1[x][y].getHasInfectedHuman();
 	}
 
@@ -190,7 +190,7 @@ public class Grid {
 	/**
 	 * @param width the width to set
 	 */
-	public static void setWidth(int width) {
+	public void setWidth(int width) {
 		Grid.width = width;
 		Human.setGridX(width);
 	}
@@ -198,7 +198,7 @@ public class Grid {
 	/**
 	 * @param height the height to set
 	 */
-	public static void setHeight(int height) {
+	public void setHeight(int height) {
 		Grid.height = height;
 		Human.setGridY(height);
 	}
