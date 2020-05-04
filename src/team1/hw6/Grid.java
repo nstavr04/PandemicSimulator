@@ -39,7 +39,7 @@ public class Grid {
 	 * @param x the width
 	 * @param y the height
 	 */
-	private void DrawGridLines(int x, int y) {
+	public void DrawGridLines(int x, int y) {
 		StdDraw.setPenRadius(0.002 / ((x + y) / 2.0 / 50.0));
 
 		for (int i = 0; i <= x; i++)
@@ -47,6 +47,16 @@ public class Grid {
 		for (int i = 0; i <= y; i++)
 			StdDraw.line(0, i, x, i);
 	}
+	
+	public void DrawGridLines(){
+		StdDraw.setPenRadius(0.002 / ((width + height) / 2.0 / 50.0));
+
+		for (int i = 0; i <= width; i++)
+			StdDraw.line(i, 0, i, height);
+		for (int i = 0; i <= height; i++)
+			StdDraw.line(0, i, width, i);
+	}
+	
 
 	/**
 	 * This method takes as parameters the size of the grid (x,y). For better
@@ -110,19 +120,19 @@ public class Grid {
 	public void addHumansOnGrid() {
 		DrawGridLines(this.width, this.height);
 
-		for (int i = 0; i < this.width; i++) {
-			for (int j = 0; j < this.height; j++) {
-				if (c1[i][j].isInfected()) {
-					StdDraw.setPenColor(StdDraw.RED);
-					StdDraw.square(i + 0.5, j + 0.5, 0.45);
-				}
-				if (c1[i][j].isInhabited()) {
-
-				}
-
-			}
-
-		}
+//		for (int i = 0; i < this.width; i++) {
+//			for (int j = 0; j < this.height; j++) {
+//				if (c1[i][j].isInfected()) {
+//					StdDraw.setPenColor(StdDraw.RED);
+//					StdDraw.square(i + 0.5, j + 0.5, 0.45);
+//				}
+//				if (c1[i][j].isInhabited()) {
+//
+//				}
+//
+//			}
+//
+//		}
 
 	}
 
@@ -224,7 +234,11 @@ public class Grid {
 	}
 
 	public void setHumansOnGrid(int x) { // set humans in the Grid grid
-		humansOnGrid++;
+		humansOnGrid+=x;
+	}
+	
+	public int getHumansOnGrid() { // set humans in the Grid grid
+		return humansOnGrid;
 	}
 
 }

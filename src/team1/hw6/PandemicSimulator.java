@@ -404,8 +404,17 @@ public class PandemicSimulator {
 		createHumans(humanNum, infectedHumans, humanMaskPer, humanMovePer, humanInfHumanPer, humanInfGroundPer,
 				humanImmunePer, groundInfHumanPer);
 
-		move(humanNum, humans, timeUnits, width, height, humans2, myGrid, myGrid2);
+//		move(humanNum, humans, timeUnits, width, height, humans2, myGrid, myGrid2);
 
+		
+		for (int i=0; i<timeUnits; i++) {
+			for (int j=0; j<areaNum; j++) {
+				move(j);
+				StdDraw.show(500);
+				drawNext(j);
+				StdDraw.show(500);
+			}
+		}
 		outputPrint(humanNum, infectedHumans);
 
 	}
@@ -455,7 +464,25 @@ public class PandemicSimulator {
 		}
 
 	}
+	
+	public static void move(int areaNum) {
 
+		for (int j = 0; j < ControlPanel.getGrids()[areaNum].getHumansOnGrid(); j++) { // elpizoume
+			ControlPanel.getHumans()[j][areaNum].move();
+			ControlPanel.getHumans()[j][areaNum].chanceToBrandTheSpot();
+			ControlPanel.getHumans()[j][areaNum].chanceToGetInfected();
+		}
+
+	}
+
+	public static void drawNext(int areaNum) {
+		for (int j = 0; j < ControlPanel.getGrids()[areaNum].getHumansOnGrid(); j++) { // elpizoume
+			ControlPanel.getGrids()[areaNum].DrawGridLines();
+			ControlPanel.getHumans()[j][areaNum].draw();
+		}
+	}
+	
+	
 	/**
 	 * The method that calls the correct constructors for human depending on the
 	 * percentages given by the user
@@ -497,6 +524,7 @@ public class PandemicSimulator {
 
 			// Used to determine on which area each human will go
 			int area = (int) (Math.random() * ControlPanel.getNumOfAreas());
+			ControlPanel.getGrids()[area].setHumansOnGrid(1);	//elpizoume
 
 			// Make human have infection
 			if (infectedHumans > 0) {

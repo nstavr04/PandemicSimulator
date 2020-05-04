@@ -48,4 +48,8 @@ public class ControlPanel {
 		return numOfAreas;
 	}
 
+	public static int getNumOfHumans() {
+		return humans.length;
+	}
+	
 }

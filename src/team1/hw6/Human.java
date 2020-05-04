@@ -55,6 +55,8 @@ public abstract class Human {
 	public abstract void move();
 
 	public abstract void firstDraw();
+	
+	public abstract void draw();
 
 	public Human(boolean isInfected, boolean giveMask, boolean immune, int humanMovePer, int humanInfHumanPer,
 			int humanInfGroundPer, int groundInfHumanPer, Grid belongingGrid) {
