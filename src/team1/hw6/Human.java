@@ -9,6 +9,8 @@ import edu.princeton.cs.introcs.StdDraw;
  * @authors nstavr04.mvasil01
  */
 public abstract class Human {
+	
+	Grid belongingGrid = null;
 
 	// Booleans
 
@@ -55,7 +57,9 @@ public abstract class Human {
 	public abstract void firstDraw();
 
 	public Human(boolean isInfected, boolean giveMask, boolean immune, int humanMovePer, int humanInfHumanPer,
-			int humanInfGroundPer, int groundInfHumanPer) {
+			int humanInfGroundPer, int groundInfHumanPer, Grid belongingGrid) {
+		
+		this.belongingGrid = belongingGrid;	//test
 		
 		
 		gridX = Grid.getWidth();		//test

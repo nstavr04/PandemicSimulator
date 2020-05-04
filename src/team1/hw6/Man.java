@@ -11,8 +11,8 @@ import edu.princeton.cs.introcs.StdDraw;
 public class Man extends Human {
 
 	public Man(boolean isInfected, boolean giveMask, boolean immune, int humanMovePer, int humanInfHumanPer,
-			int humanInfGroundPer, int groundInfHumanPer) {
-		super(isInfected, giveMask, immune, humanMovePer, humanInfHumanPer, humanInfGroundPer, groundInfHumanPer);
+			int humanInfGroundPer, int groundInfHumanPer, Grid belongingGrid) {
+		super(isInfected, giveMask, immune, humanMovePer, humanInfHumanPer, humanInfGroundPer, groundInfHumanPer, belongingGrid);
 	}
 
 	/**
