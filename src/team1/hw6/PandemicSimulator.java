@@ -48,6 +48,9 @@ public class PandemicSimulator {
 
 		continueInput = true;
 
+		// For each area there is different humans count!
+		int[] counterForEachArea = new int[areaNum];
+		
 		// Array for all the area sizes ( x , y )
 		int[][] areaSizes = new int[areaNum][areaNum];
 
@@ -402,13 +405,14 @@ public class PandemicSimulator {
 		ControlPanel controlP = new ControlPanel(humansarr, gridsarr);
 
 		createHumans(humanNum, infectedHumans, humanMaskPer, humanMovePer, humanInfHumanPer, humanInfGroundPer,
-				humanImmunePer, groundInfHumanPer);
+				humanImmunePer, groundInfHumanPer, counterForEachArea);
 
 //		move(humanNum, humans, timeUnits, width, height, humans2, myGrid, myGrid2);
 
 		for (int i = 0; i < timeUnits; i++) {
 			for (int j = 0; j < areaNum; j++) {
 				move(j);
+				System.out.println("j = " + j);
 				StdDraw.show(500);
 				drawNext(j);
 				StdDraw.show(500);
@@ -496,7 +500,7 @@ public class PandemicSimulator {
 	 * @param groundInfHumanPer
 	 */
 	public static void createHumans(int humNum, int infectedHumans, int humanMaskPer, int humanMovePer,
-			int humanInfHumanPer, int humanInfGroundPer, int humanImmunePer, int groundInfHumanPer) {
+			int humanInfHumanPer, int humanInfGroundPer, int humanImmunePer, int groundInfHumanPer, int counterForEachArea[]) {
 
 		boolean isInfected = false;
 
@@ -529,10 +533,10 @@ public class PandemicSimulator {
 				isInfected = true;
 
 				if (giveMask)
-					ControlPanel.getHumans()[i][area] = new MaskedMan(isInfected, giveMask, immune, humanMovePer,
+					ControlPanel.getHumans()[counterForEachArea[area]][area] = new MaskedMan(isInfected, giveMask, immune, humanMovePer,
 							humanInfHumanPer, humanInfGroundPer, groundInfHumanPer, ControlPanel.getGrids()[area]);
 				else
-					ControlPanel.getHumans()[i][area] = new Man(isInfected, giveMask, immune, humanMovePer,
+					ControlPanel.getHumans()[counterForEachArea[area]][area] = new Man(isInfected, giveMask, immune, humanMovePer,
 							humanInfHumanPer, humanInfGroundPer, groundInfHumanPer, ControlPanel.getGrids()[area]);
 				infectedHumans--;
 
@@ -546,12 +550,13 @@ public class PandemicSimulator {
 					immune = false;
 
 				if (giveMask)
-					ControlPanel.getHumans()[i][area] = new MaskedMan(isInfected, giveMask, immune, humanMovePer,
+					ControlPanel.getHumans()[counterForEachArea[area]][area] = new MaskedMan(isInfected, giveMask, immune, humanMovePer,
 							humanInfHumanPer, humanInfGroundPer, groundInfHumanPer, ControlPanel.getGrids()[area]);
 				else
-					ControlPanel.getHumans()[i][area] = new Man(isInfected, giveMask, immune, humanMovePer,
+					ControlPanel.getHumans()[counterForEachArea[area]][area] = new Man(isInfected, giveMask, immune, humanMovePer,
 							humanInfHumanPer, humanInfGroundPer, groundInfHumanPer, ControlPanel.getGrids()[area]);
 			}
+			counterForEachArea[area]++;
 
 		}
 	}

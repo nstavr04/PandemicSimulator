@@ -238,6 +238,7 @@ public class Grid {
 	}
 	
 	public int getHumansOnGrid() { // set humans in the Grid grid
+		System.out.println(humansOnGrid);
 		return humansOnGrid;
 	}
 

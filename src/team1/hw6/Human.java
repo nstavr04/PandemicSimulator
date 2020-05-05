@@ -27,8 +27,8 @@ public abstract class Human {
 
 	// Grid dimensions
 
-	private static int gridX;
-	private static int gridY;
+	private int gridX;
+	private int gridY;
 
 	// Coordinates of human
 
@@ -340,7 +340,7 @@ public abstract class Human {
 	 * @param gridX the gridX to set
 	 */
 	public void setGridX(int gridX) {
-		Human.gridX = gridX;
+		this.gridX = gridX;
 	}
 
 	/**
@@ -354,7 +354,7 @@ public abstract class Human {
 	 * @param gridY the gridY to set
 	 */
 	public void setGridY(int gridY) {
-		Human.gridY = gridY;
+		this.gridY = gridY;
 	}
 
 	/**
