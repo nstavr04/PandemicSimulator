@@ -33,7 +33,7 @@ public class PandemicSimulator {
 
 				areaNum = Integer.parseInt(scan.nextLine());
 
-				if (areaNum < 0)
+				if (areaNum <= 0)
 					throw new ExceptionNegativeValue();
 
 				continueInput = false;
@@ -52,7 +52,7 @@ public class PandemicSimulator {
 		int[] counterForEachArea = new int[areaNum];
 		
 		// Array for all the area sizes ( x , y )
-		int[][] areaSizes = new int[areaNum][areaNum];
+		int[][] areaSizes = new int[areaNum][2];
 
 		int maxHumanNum = 0;
 
@@ -413,7 +413,6 @@ public class PandemicSimulator {
 		for (int i = 0; i < timeUnits; i++) {
 			for (int j = 0; j < areaNum; j++) {
 				move(j);
-				System.out.println("j = " + j);
 				StdDraw.show(500);
 				// Draw the next area's humans
 				if (j == (areaNum -1))	
@@ -476,7 +475,7 @@ public class PandemicSimulator {
 
 	public static void move(int areaNum) {
 
-		for (int j = 0; j < ControlPanel.getGrids()[areaNum].getHumansOnGrid(); j++) { // elpizoume
+		for (int j = 0; j < ControlPanel.getGrids()[areaNum].getHumansOnGrid(); j++) { // 
 			ControlPanel.getGrids()[areaNum].drawInfectionsBack();
 			ControlPanel.getHumans()[j][areaNum].move();
 			ControlPanel.getHumans()[j][areaNum].chanceToBrandTheSpot();
@@ -487,10 +486,10 @@ public class PandemicSimulator {
 	}
 
 	public static void drawNext(int areaNum) {
-		ControlPanel.getGrids()[areaNum].drawInfectionsBack();
 		ControlPanel.getGrids()[areaNum].setDimentions();
 		ControlPanel.getGrids()[areaNum].drawGridLines();
-		for (int j = 0; j < ControlPanel.getGrids()[areaNum].getHumansOnGrid(); j++) { // elpizoume
+		ControlPanel.getGrids()[areaNum].drawInfectionsBack();
+		for (int j = 0; j < ControlPanel.getGrids()[areaNum].getHumansOnGrid(); j++) { // 
 			ControlPanel.getHumans()[j][areaNum].draw();
 		}
 	}

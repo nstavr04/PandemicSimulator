@@ -272,15 +272,18 @@ public abstract class Human {
 			// double for all the neighboring cells
 			for (int i = curX - 1; i <= curX + 1; i++) {
 				for (int j = curY - 1; j <= curY + 1; j++) {
-					// If not out of bounds
-					if (i >= 0 && i < gridX && j >= 0 && j < gridY) {
-						// If it is NOT a free cell
-						if (belongingGrid.getBoardPos(i, j)) {
-							if (belongingGrid.getHasInfectedHuman(i, j)) {
-								if ((int) (Math.random() * 101) <= humanInfHumanPer) {
-									this.infected = true;
-									infectedCounter++;
-									System.out.println("A man has been infected from a Human");
+					// If not got infected right now
+					if (!infected) {
+						// If not out of bounds
+						if (i >= 0 && i < gridX && j >= 0 && j < gridY) {
+							// If it is NOT a free cell
+							if (belongingGrid.getBoardPos(i, j)) {
+								if (belongingGrid.getHasInfectedHuman(i, j)) {
+									if ((int) (Math.random() * 101) <= humanInfHumanPer) {
+										this.infected = true;
+										infectedCounter++;
+										System.out.println("A man has been infected from a Human");
+									}
 								}
 							}
 						}
