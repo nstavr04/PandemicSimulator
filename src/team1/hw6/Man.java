@@ -71,20 +71,19 @@ public class Man extends Human {
 	public void firstDraw() {
 		startingPos();
 		generateDirection();
-		if (super.isInfected() == true) {	//test
+		if (super.isInfected() == true) {
 			
-		
-		if (belongingGrid.getHasInfectedHuman(getCurX(), getCurY()))
+//		if (belongingGrid.getHasInfectedHuman(getCurX(), getCurY()))
 			// if he is infected, set it to the cell
-			belongingGrid.setHasInfectedHuman(getCurX(), getCurY(), true);
+		belongingGrid.setHasInfectedHuman(getCurX(), getCurY(), true);
 		if (getDirection() == 1)
-			StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleUP.JPG", 0.7, 0.7);
+			StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleUPWITHVIRUS.JPG", 0.7, 0.7);
 		else if (getDirection() == 2)
-			StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleDOWN.JPG", 0.7, 0.7);
+			StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleDOWNWITHVIRUS.JPG", 0.7, 0.7);
 		else if (getDirection() == 3)
-			StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleLEFT.JPG", 0.7, 0.7);
+			StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleLEFTWITHVIRUS.JPG", 0.7, 0.7);
 		else if (getDirection() == 4)
-			StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleRIGHT.JPG", 0.7, 0.7);
+			StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleRIGHTWITHVIRUS.JPG", 0.7, 0.7);
 		
 		}	//test
 		else {
@@ -102,14 +101,32 @@ public class Man extends Human {
 	
 	public void draw() {
 		
+		if (super.isInfected() == true) {	
+//			if (belongingGrid.getHasInfectedHuman(getCurX(), getCurY()))
+				// if he is infected, set it to the cell
+				belongingGrid.setHasInfectedHuman(getCurX(), getCurY(), true);
 		if (getDirection() == 1)
-			StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleUP.JPG", 0.7, 0.7);
+			StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleUPWITHVIRUS.JPG", 0.7, 0.7);
 		else if (getDirection() == 2)
-			StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleDOWN.JPG", 0.7, 0.7);
+			StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleDOWNWITHVIRUS.JPG", 0.7, 0.7);
 		else if (getDirection() == 3)
-			StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleLEFT.JPG", 0.7, 0.7);
+			StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleLEFTWITHVIRUS.JPG", 0.7, 0.7);
 		else if (getDirection() == 4)
-			StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleRIGHT.JPG", 0.7, 0.7);
+			StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleRIGHTWITHVIRUS.JPG", 0.7, 0.7);
+	}
+		else {
+			if (getDirection() == 1)
+				StdDraw.picture(getNextX() + 0.5, getNextY() + 0.5, "PersonAboveViewSingleUP.JPG", 0.7, 0.7);
+			else if (getDirection() == 2)
+				StdDraw.picture(getNextX() + 0.5, getNextY() + 0.5, "PersonAboveViewSingleDOWN.JPG", 0.7, 0.7);
+			else if (getDirection() == 3)
+				StdDraw.picture(getNextX() + 0.5, getNextY() + 0.5, "PersonAboveViewSingleLEFT.JPG", 0.7, 0.7);
+			else if (getDirection() == 4)
+				StdDraw.picture(getNextX() + 0.5, getNextY() + 0.5, "PersonAboveViewSingleRIGHT.JPG", 0.7, 0.7);
+
+		}
+		
+		
 	}
 	
 	

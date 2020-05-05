@@ -240,5 +240,17 @@ public class Grid {
 	public int getHumansOnGrid() { // set humans in the Grid grid
 		return humansOnGrid;
 	}
+	
+	public void drawInfectionsBack() {
+		for (int i=0; i<width; i++) {
+			for (int j=0; j<height; j++) {
+				if (getInfectionPos(i,j)) {
+				StdDraw.setPenColor(StdDraw.RED);
+				StdDraw.square(i + 0.5, j + 0.5, 0.45);
+				}
+			}
+		}
+		
+	}
 
 }

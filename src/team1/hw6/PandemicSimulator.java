@@ -477,15 +477,17 @@ public class PandemicSimulator {
 	public static void move(int areaNum) {
 
 		for (int j = 0; j < ControlPanel.getGrids()[areaNum].getHumansOnGrid(); j++) { // elpizoume
+			ControlPanel.getGrids()[areaNum].drawInfectionsBack();
 			ControlPanel.getHumans()[j][areaNum].move();
 			ControlPanel.getHumans()[j][areaNum].chanceToBrandTheSpot();
 			ControlPanel.getHumans()[j][areaNum].chanceToGetInfected();
 			//we must use the method updateGrid too
 		}
-
+		ControlPanel.getGrids()[areaNum].updateGrid();
 	}
 
 	public static void drawNext(int areaNum) {
+		ControlPanel.getGrids()[areaNum].drawInfectionsBack();
 		ControlPanel.getGrids()[areaNum].setDimentions();
 		ControlPanel.getGrids()[areaNum].drawGridLines();
 		for (int j = 0; j < ControlPanel.getGrids()[areaNum].getHumansOnGrid(); j++) { // elpizoume
