@@ -60,7 +60,7 @@ public class PandemicSimulator {
 			areaSizes[i][0] = 0;
 			areaSizes[i][1] = 0;
 
-			System.out.println("Give the width scale of the simulation(max: 50): ");
+			System.out.println("Give the width scale of the simulation(max: 50) for area " + (i + 1) + " :");
 
 			do {
 				try {
@@ -86,7 +86,7 @@ public class PandemicSimulator {
 
 			continueInput = true;
 
-			System.out.println("Give the height scale of the simulation(max: 40): ");
+			System.out.println("Give the height scale of the simulation(max: 40) for area " + (i + 1) + " :");
 
 			do {
 				try {
@@ -406,9 +406,8 @@ public class PandemicSimulator {
 
 //		move(humanNum, humans, timeUnits, width, height, humans2, myGrid, myGrid2);
 
-		
-		for (int i=0; i<timeUnits; i++) {
-			for (int j=0; j<areaNum; j++) {
+		for (int i = 0; i < timeUnits; i++) {
+			for (int j = 0; j < areaNum; j++) {
 				move(j);
 				StdDraw.show(500);
 				drawNext(j);
@@ -464,7 +463,7 @@ public class PandemicSimulator {
 		}
 
 	}
-	
+
 	public static void move(int areaNum) {
 
 		for (int j = 0; j < ControlPanel.getGrids()[areaNum].getHumansOnGrid(); j++) { // elpizoume
@@ -481,8 +480,7 @@ public class PandemicSimulator {
 			ControlPanel.getHumans()[j][areaNum].draw();
 		}
 	}
-	
-	
+
 	/**
 	 * The method that calls the correct constructors for human depending on the
 	 * percentages given by the user
@@ -524,7 +522,7 @@ public class PandemicSimulator {
 
 			// Used to determine on which area each human will go
 			int area = (int) (Math.random() * ControlPanel.getNumOfAreas());
-			ControlPanel.getGrids()[area].setHumansOnGrid(1);	//elpizoume
+			ControlPanel.getGrids()[area].setHumansOnGrid(1); // elpizoume
 
 			// Make human have infection
 			if (infectedHumans > 0) {
