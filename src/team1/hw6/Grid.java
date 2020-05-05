@@ -26,9 +26,9 @@ public class Grid {
 		height = y;
 		humansOnGrid = 0;
 		// Set the proper dimentions the first time
-		SetDimentions(width, height);
+		setDimentions(width, height);
 		// Draw the grid lines the first time
-		DrawGridLines(width, height);
+		drawGridLines(width, height);
 		// Create the cells the first time
 		createCells(width, height);
 	}
@@ -39,7 +39,7 @@ public class Grid {
 	 * @param x the width
 	 * @param y the height
 	 */
-	public void DrawGridLines(int x, int y) {
+	private void drawGridLines(int x, int y) {
 		StdDraw.setPenRadius(0.002 / ((x + y) / 2.0 / 50.0));
 
 		for (int i = 0; i <= x; i++)
@@ -48,13 +48,8 @@ public class Grid {
 			StdDraw.line(0, i, x, i);
 	}
 	
-	public void DrawGridLines(){
-		StdDraw.setPenRadius(0.002 / ((width + height) / 2.0 / 50.0));
-
-		for (int i = 0; i <= width; i++)
-			StdDraw.line(i, 0, i, height);
-		for (int i = 0; i <= height; i++)
-			StdDraw.line(0, i, width, i);
+	public void drawGridLines(){
+		drawGridLines(width, height);
 	}
 	
 
@@ -65,7 +60,7 @@ public class Grid {
 	 * @param x width
 	 * @param y height
 	 */
-	private void SetDimentions(int x, int y) {
+	private void setDimentions(int x, int y) {
 		if (y > 20)
 			StdDraw.setCanvasSize(800 + x * 20, 800 + 20 * 10);
 		else if (x > 35) {
@@ -75,6 +70,11 @@ public class Grid {
 		StdDraw.clear(StdDraw.WHITE);
 		StdDraw.setXscale(0, x);
 		StdDraw.setYscale(0, y);
+	}
+	
+	
+	public void setDimentions() {
+		setDimentions(width, height);
 	}
 
 	/**
@@ -118,7 +118,7 @@ public class Grid {
 
 	// A method that puts again the humans on the grid
 	public void addHumansOnGrid() {
-		DrawGridLines(this.width, this.height);
+		drawGridLines(this.width, this.height);
 
 //		for (int i = 0; i < this.width; i++) {
 //			for (int j = 0; j < this.height; j++) {
@@ -238,7 +238,6 @@ public class Grid {
 	}
 	
 	public int getHumansOnGrid() { // set humans in the Grid grid
-		System.out.println(humansOnGrid);
 		return humansOnGrid;
 	}
 

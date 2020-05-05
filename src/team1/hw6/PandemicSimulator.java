@@ -408,13 +408,19 @@ public class PandemicSimulator {
 				humanImmunePer, groundInfHumanPer, counterForEachArea);
 
 //		move(humanNum, humans, timeUnits, width, height, humans2, myGrid, myGrid2);
-
+		
+		int temp; 	//test
 		for (int i = 0; i < timeUnits; i++) {
 			for (int j = 0; j < areaNum; j++) {
 				move(j);
 				System.out.println("j = " + j);
 				StdDraw.show(500);
-				drawNext(j);
+				// Draw the next area's humans
+				if (j == (areaNum -1))	
+					temp=0;
+				else
+					temp=(j+1);
+				drawNext(temp);
 				StdDraw.show(500);
 			}
 		}
@@ -474,13 +480,15 @@ public class PandemicSimulator {
 			ControlPanel.getHumans()[j][areaNum].move();
 			ControlPanel.getHumans()[j][areaNum].chanceToBrandTheSpot();
 			ControlPanel.getHumans()[j][areaNum].chanceToGetInfected();
+			//we must use the method updateGrid too
 		}
 
 	}
 
 	public static void drawNext(int areaNum) {
+		ControlPanel.getGrids()[areaNum].setDimentions();
+		ControlPanel.getGrids()[areaNum].drawGridLines();
 		for (int j = 0; j < ControlPanel.getGrids()[areaNum].getHumansOnGrid(); j++) { // elpizoume
-			ControlPanel.getGrids()[areaNum].DrawGridLines();
 			ControlPanel.getHumans()[j][areaNum].draw();
 		}
 	}

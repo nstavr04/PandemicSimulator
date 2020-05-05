@@ -71,6 +71,9 @@ public class Man extends Human {
 	public void firstDraw() {
 		startingPos();
 		generateDirection();
+		if (super.isInfected() == true) {	//test
+			
+		
 		if (belongingGrid.getHasInfectedHuman(getCurX(), getCurY()))
 			// if he is infected, set it to the cell
 			belongingGrid.setHasInfectedHuman(getCurX(), getCurY(), true);
@@ -82,7 +85,19 @@ public class Man extends Human {
 			StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleLEFT.JPG", 0.7, 0.7);
 		else if (getDirection() == 4)
 			StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleRIGHT.JPG", 0.7, 0.7);
+		
+		}	//test
+		else {
+			if (getDirection() == 1)
+				StdDraw.picture(getNextX() + 0.5, getNextY() + 0.5, "PersonAboveViewSingleUP.JPG", 0.7, 0.7);
+			else if (getDirection() == 2)
+				StdDraw.picture(getNextX() + 0.5, getNextY() + 0.5, "PersonAboveViewSingleDOWN.JPG", 0.7, 0.7);
+			else if (getDirection() == 3)
+				StdDraw.picture(getNextX() + 0.5, getNextY() + 0.5, "PersonAboveViewSingleLEFT.JPG", 0.7, 0.7);
+			else if (getDirection() == 4)
+				StdDraw.picture(getNextX() + 0.5, getNextY() + 0.5, "PersonAboveViewSingleRIGHT.JPG", 0.7, 0.7);
 
+		}
 	}
 	
 	public void draw() {
