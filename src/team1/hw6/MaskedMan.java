@@ -93,16 +93,16 @@ public class MaskedMan extends Human {
 		}
 		else {
 			if (getDirection() == 1)
-				StdDraw.picture(getNextX() + 0.5, getNextY() + 0.5, "PersonAboveViewSingleMASKEDUP.JPG", 0.7,
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleMASKEDUP.JPG", 0.7,
 						0.7);
 			else if (getDirection() == 2)
-				StdDraw.picture(getNextX() + 0.5, getNextY() + 0.5, "PersonAboveViewSingleMASKEDDOWN.JPG", 0.7,
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleMASKEDDOWN.JPG", 0.7,
 						0.7);
 			else if (getDirection() == 3)
-				StdDraw.picture(getNextX() + 0.5, getNextY() + 0.5, "PersonAboveViewSingleMASKEDLEFT.JPG", 0.7,
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleMASKEDLEFT.JPG", 0.7,
 						0.7);
 			else if (getDirection() == 4)
-				StdDraw.picture(getNextX() + 0.5, getNextY() + 0.5, "PersonAboveViewSingleMASKEDRIGHT.JPG", 0.7,
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleMASKEDRIGHT.JPG", 0.7,
 						0.7);
 
 		}
@@ -121,16 +121,16 @@ public class MaskedMan extends Human {
 		}
 		else {
 			if (getDirection() == 1)
-				StdDraw.picture(getNextX() + 0.5, getNextY() + 0.5, "PersonAboveViewSingleMASKEDUP.JPG", 0.7,
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleMASKEDUP.JPG", 0.7,
 						0.7);
 			else if (getDirection() == 2)
-				StdDraw.picture(getNextX() + 0.5, getNextY() + 0.5, "PersonAboveViewSingleMASKEDDOWN.JPG", 0.7,
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleMASKEDDOWN.JPG", 0.7,
 						0.7);
 			else if (getDirection() == 3)
-				StdDraw.picture(getNextX() + 0.5, getNextY() + 0.5, "PersonAboveViewSingleMASKEDLEFT.JPG", 0.7,
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleMASKEDLEFT.JPG", 0.7,
 						0.7);
 			else if (getDirection() == 4)
-				StdDraw.picture(getNextX() + 0.5, getNextY() + 0.5, "PersonAboveViewSingleMASKEDRIGHT.JPG", 0.7,
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleMASKEDRIGHT.JPG", 0.7,
 						0.7);
 
 		}

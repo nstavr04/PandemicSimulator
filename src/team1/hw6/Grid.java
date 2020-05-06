@@ -180,7 +180,7 @@ public class Grid {
 	 * @param j
 	 * @return
 	 */
-	public boolean getBoardPos(int x, int y) { // static
+	public boolean getBoardPos(int x, int y) { 
 		return c1[x][y].isInhabited();
 	}
 

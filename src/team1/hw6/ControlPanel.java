@@ -53,17 +53,18 @@ public class ControlPanel {
 	public static int getNumOfHumans() {
 		return humans.length;
 	}
-	
+
 	public static void teleport (int j, int prevAreaNum, int nextAreaNum) {//j = thesi athropou sto pinaka
-		for (int i=0; i<humans.length; i++) {	//teleport him
+		System.out.println("ControlPanel -> teleport -> humans.length: " + humans.length);
+		for (int i=0; i<getGrids()[nextAreaNum].getHumansOnGrid(); i++) {	//teleport him
 			if (humans[i][nextAreaNum] == null) {
 				humans[i][nextAreaNum] = humans[j][prevAreaNum];
 				teleportedIndex = i;
 				break;
 			}
 		}
-		for (int i=j; i<humans.length-1; i++) {
-			if (humans[i+1][prevAreaNum] != null)
+		for (int i=j; i<getGrids()[prevAreaNum].getHumansOnGrid(); i++) {
+//			if (humans[i+1][prevAreaNum] != null)
 			humans[i][prevAreaNum] = humans[i+1][prevAreaNum]; 
 		}
 		

@@ -632,9 +632,9 @@ public class PandemicSimulator {
 			if (ControlPanel.getHumans()[j][areaNum].isInBorder() != -1) {
 				int nextArea = ControlPanel.getHumans()[j][areaNum].isInBorder();
 				ControlPanel.teleport(j, areaNum, nextArea);
-				ControlPanel.getHumans()[ControlPanel.getTeleportedIndex()][nextArea].startingPos();
-				ControlPanel.getHumans()[ControlPanel.getTeleportedIndex()][nextArea].setBelongingGrid(gridsarr[nextArea]);
 				ControlPanel.getGrids()[areaNum].setHumansOnGrid(-1);
+				ControlPanel.getHumans()[ControlPanel.getTeleportedIndex()][nextArea].setBelongingGrid(gridsarr[nextArea]);
+				ControlPanel.getHumans()[ControlPanel.getTeleportedIndex()][nextArea].startingPos();
 				ControlPanel.getGrids()[nextArea].setHumansOnGrid(1);
 			}	
 		}
