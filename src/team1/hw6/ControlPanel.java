@@ -7,7 +7,7 @@ public class ControlPanel {
 //	private int humanNums[];
 
 	private static int numOfAreas;
-	
+
 	private static int teleportedIndex;
 
 	public ControlPanel(Human[][] humans, Grid grids[]) {
@@ -54,23 +54,26 @@ public class ControlPanel {
 		return humans.length;
 	}
 
-	public static void teleport (int j, int prevAreaNum, int nextAreaNum) {//j = thesi athropou sto pinaka
-		System.out.println("ControlPanel -> teleport -> humans.length: " + humans.length);
-		for (int i=0; i<getGrids()[nextAreaNum].getHumansOnGrid(); i++) {	//teleport him
+	public static void teleport(int j, int prevAreaNum, int nextAreaNum) {// j = thesi athropou sto pinaka
+		System.out.println("ControlPanel -> teleport -> humans.length: " + getGrids()[nextAreaNum].getHumansOnGrid());
+		System.out.println("ControlPanel -> teleport -> humans.length: " + getGrids()[prevAreaNum].getHumansOnGrid());
+		for (int i = 0; i < humans.length; i++) { // teleport him
 			if (humans[i][nextAreaNum] == null) {
 				humans[i][nextAreaNum] = humans[j][prevAreaNum];
 				teleportedIndex = i;
 				break;
 			}
 		}
-		for (int i=j; i<getGrids()[prevAreaNum].getHumansOnGrid(); i++) {
+		for (int i = j; i < humans.length - 1; i++) {
 //			if (humans[i+1][prevAreaNum] != null)
-			humans[i][prevAreaNum] = humans[i+1][prevAreaNum]; 
+			humans[i][prevAreaNum] = humans[i + 1][prevAreaNum];
 		}
-		
+		// getGrids()[nextAreaNum].getHumansOnGrid()
+		// getGrids()[prevAreaNum].getHumansOnGrid()
+
 	}
-	
-	public static int getTeleportedIndex () {
+
+	public static int getTeleportedIndex() {
 		return teleportedIndex;
 	}
 
