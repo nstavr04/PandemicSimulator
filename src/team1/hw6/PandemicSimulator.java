@@ -561,7 +561,7 @@ public class PandemicSimulator {
 		int temp; // test
 		for (int i = 0; i < timeUnits; i++) {
 			for (int j = 0; j < areaNum; j++) {
-				move(j);
+				move(j, gridsarr);
 				StdDraw.show(500);
 				// Draw the next area's humans
 				if (j == (areaNum - 1))
@@ -622,7 +622,7 @@ public class PandemicSimulator {
 
 	}
 
-	public static void move(int areaNum) {
+	public static void move(int areaNum, Grid[] gridsarr) {
 
 		for (int j = 0; j < ControlPanel.getGrids()[areaNum].getHumansOnGrid(); j++) { //
 			ControlPanel.getGrids()[areaNum].drawInfectionsBack();
@@ -633,6 +633,7 @@ public class PandemicSimulator {
 				int nextArea = ControlPanel.getHumans()[j][areaNum].isInBorder();
 				ControlPanel.teleport(j, areaNum, nextArea);
 				ControlPanel.getHumans()[ControlPanel.getTeleportedIndex()][nextArea].startingPos();
+				ControlPanel.getHumans()[ControlPanel.getTeleportedIndex()][nextArea].setBelongingGrid(gridsarr[nextArea]);
 				ControlPanel.getGrids()[areaNum].setHumansOnGrid(-1);
 				ControlPanel.getGrids()[nextArea].setHumansOnGrid(1);
 			}	
