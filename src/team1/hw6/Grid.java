@@ -39,7 +39,7 @@ public class Grid {
 
 	public Grid(int x, int y, int[] borderX, int[] borderY, int[] nextArea, int counter) {
 		this(x, y);
-		border = new Border(borderX, borderY, nextArea, counter);
+		border = new Border(borderX, borderY, nextArea, counter, width, height);
 	}
 
 	/**
@@ -257,7 +257,10 @@ public class Grid {
 				}
 			}
 		}
-
+	}
+	
+	public int isInBorder(int x, int y) {
+		return border.isInBoarder(x, y);
 	}
 
 }

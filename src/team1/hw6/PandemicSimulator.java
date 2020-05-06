@@ -168,7 +168,6 @@ public class PandemicSimulator {
 
 		int[][] borderX = new int[maxBorderAmount][areaNum];
 		int[][] borderY = new int[maxBorderAmount][areaNum];
-		int currentArea = 0;
 		int nextArea[][] = new int[maxBorderAmount][areaNum];
 
 		// For each area
@@ -542,9 +541,9 @@ public class PandemicSimulator {
 			// Transfer the 2D arrays to 1D arrays to make use in Grid constructor
 			for (int j = 0; j < borderX.length; j++) {
 
-				tempX[j] = borderX[j][areaNum];
-				tempY[j] = borderY[j][areaNum];
-				tempNextArea[j] = nextArea[j][areaNum];
+				tempX[j] = borderX[j][i];
+				tempY[j] = borderY[j][i];
+				tempNextArea[j] = nextArea[j][i];
 
 			}
 
@@ -630,7 +629,13 @@ public class PandemicSimulator {
 			ControlPanel.getHumans()[j][areaNum].move();
 			ControlPanel.getHumans()[j][areaNum].chanceToBrandTheSpot();
 			ControlPanel.getHumans()[j][areaNum].chanceToGetInfected();
-			// we must use the method updateGrid too
+			if (ControlPanel.getHumans()[j][areaNum].isInBorder() != -1) {
+				int nextArea = ControlPanel.getHumans()[j][areaNum].isInBorder();
+				ControlPanel.teleport(j, areaNum, nextArea);
+				ControlPanel.getHumans()[ControlPanel.getTeleportedIndex()][nextArea].startingPos();
+				ControlPanel.getGrids()[areaNum].setHumansOnGrid(-1);
+				ControlPanel.getGrids()[nextArea].setHumansOnGrid(1);
+			}	
 		}
 		ControlPanel.getGrids()[areaNum].updateGrid();
 	}

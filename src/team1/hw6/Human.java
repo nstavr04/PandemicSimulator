@@ -374,11 +374,9 @@ public abstract class Human {
 		this.belongingGrid = belongingGrid;
 	}
 
-	
-	
-	
-	
-	
+	public int isInBorder() {
+		return belongingGrid.isInBorder(curX, curY);
+	}
 	
 	
 	
