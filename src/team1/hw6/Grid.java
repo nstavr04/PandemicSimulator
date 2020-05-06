@@ -180,7 +180,7 @@ public class Grid {
 	 * @param j
 	 * @return
 	 */
-	public boolean getBoardPos(int x, int y) { 
+	public boolean getBoardPos(int x, int y) {
 		return c1[x][y].isInhabited();
 	}
 
@@ -240,14 +240,23 @@ public class Grid {
 //		Human.setGridY(height);
 	}
 
+	/**
+	 * @param x 1 to add a human , -1 to remove one
+	 */
 	public void setHumansOnGrid(int x) { // set humans in the Grid grid
 		humansOnGrid += x;
 	}
 
-	public int getHumansOnGrid() { // set humans in the Grid grid
+	/**
+	 * @return the humans on a certain grid
+	 */
+	public int getHumansOnGrid() {
 		return humansOnGrid;
 	}
 
+	/**
+	 * Draws the ground infections again
+	 */
 	public void drawInfectionsBack() {
 		for (int i = 0; i < width; i++) {
 			for (int j = 0; j < height; j++) {
@@ -258,7 +267,12 @@ public class Grid {
 			}
 		}
 	}
-	
+
+	/**
+	 * @param x width
+	 * @param y height
+	 * @return
+	 */
 	public int isInBorder(int x, int y) {
 		return border.isInBoarder(x, y);
 	}

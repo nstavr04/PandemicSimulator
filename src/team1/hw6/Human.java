@@ -9,7 +9,7 @@ import edu.princeton.cs.introcs.StdDraw;
  * @authors nstavr04.mvasil01
  */
 public abstract class Human {
-	
+
 	Grid belongingGrid = null;
 
 	// Booleans
@@ -55,20 +55,17 @@ public abstract class Human {
 	public abstract void move();
 
 	public abstract void firstDraw();
-	
+
 	public abstract void draw();
 
 	public Human(boolean isInfected, boolean giveMask, boolean immune, int humanMovePer, int humanInfHumanPer,
 			int humanInfGroundPer, int groundInfHumanPer, Grid belongingGrid) {
-		
-		this.belongingGrid = belongingGrid;	//test
-		
-		
-		gridX = belongingGrid.getWidth();		//test
-		gridY = belongingGrid.getHeight();	//test
-		
-		
-		
+
+		this.belongingGrid = belongingGrid; // test
+
+		gridX = belongingGrid.getWidth(); // test
+		gridY = belongingGrid.getHeight(); // test
+
 		// Keep track of the statistics
 		humanCounter++;
 		if (immune)
@@ -328,10 +325,7 @@ public abstract class Human {
 	public static int getMaskCounter() {
 		return maskCounter;
 	}
-	
-	
-	
-	//test
+
 	/**
 	 * @return the gridX
 	 */
@@ -374,12 +368,11 @@ public abstract class Human {
 		this.belongingGrid = belongingGrid;
 	}
 
+	/**
+	 * @return
+	 */
 	public int isInBorder() {
 		return belongingGrid.isInBorder(curX, curY);
 	}
-	
-	
-	
-	
 
 }

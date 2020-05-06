@@ -1,10 +1,16 @@
 package team1.hw6;
 
+/**
+ * This class acts as a ControlPanel making it able to control from the
+ * PandemicSimlator - Main the actions taken between humans and grids
+ * 
+ * @author nstavr04.mvasil17
+ *
+ */
 public class ControlPanel {
 
 	private static Human[][] humans;
 	private static Grid[] grids;
-//	private int humanNums[];
 
 	private static int numOfAreas;
 
@@ -46,15 +52,30 @@ public class ControlPanel {
 		ControlPanel.grids = grids;
 	}
 
+	/**
+	 * @return number of areas
+	 */
 	public static int getNumOfAreas() {
 		return numOfAreas;
 	}
 
+	/**
+	 * @return number of humans
+	 */
 	public static int getNumOfHumans() {
 		return humans.length;
 	}
 
-	public static void teleport(int j, int prevAreaNum, int nextAreaNum) {// j = thesi athropou sto pinaka
+	/**
+	 * Transfers a human to human array of the other area and fils the spot on the
+	 * previous array
+	 * 
+	 * @param j
+	 * @param prevAreaNum
+	 * @param nextAreaNum
+	 */
+	public static void teleport(int j, int prevAreaNum, int nextAreaNum) {
+		// j = Human position on array
 		System.out.println("ControlPanel -> teleport -> humans.length: " + getGrids()[nextAreaNum].getHumansOnGrid());
 		System.out.println("ControlPanel -> teleport -> humans.length: " + getGrids()[prevAreaNum].getHumansOnGrid());
 		for (int i = 0; i < humans.length; i++) { // teleport him
@@ -73,6 +94,9 @@ public class ControlPanel {
 
 	}
 
+	/**
+	 * @return the teleported human index on the array
+	 */
 	public static int getTeleportedIndex() {
 		return teleportedIndex;
 	}
