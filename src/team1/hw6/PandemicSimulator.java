@@ -50,11 +50,14 @@ public class PandemicSimulator {
 
 		// For each area there is different humans count!
 		int[] counterForEachArea = new int[areaNum];
-		
+
 		// Array for all the area sizes ( x , y )
 		int[][] areaSizes = new int[areaNum][2];
 
 		int maxHumanNum = 0;
+
+		// Border amount for each area
+		int borderAmount[] = new int[areaNum];
 
 		// For each area give the size of the corresponding grid
 		for (int i = 0; i < areaNum; i++) {
@@ -120,6 +123,140 @@ public class PandemicSimulator {
 
 			// Find the max number of humans allowed throughout all grids
 			maxHumanNum += areaSizes[i][0] * areaSizes[i][1];
+
+			// NOT IMPLEMENTED YET
+			System.out.println("Give border amount. Type -1 for default borders (corners).");
+
+			System.out.println("Give border amount for area " + (i + 1) + " :");
+
+			do {
+				try {
+
+					borderAmount[i] = Integer.parseInt(scan.nextLine());
+
+					if (borderAmount[i] < 0)
+						throw new ExceptionNegativeValue();
+
+					if (borderAmount[i] > (areaSizes[i][0] * 2 + areaSizes[i][1] * 2 - 4))
+						throw new ExceptionNegativeValue(
+								"You have exceeded the maximum amount of borders. Try again: ");
+
+					continueInput = false;
+
+				} catch (NumberFormatException e) {
+					System.out.println("Wrong border amount input. Must be a positive number. Try again: ");
+				} catch (ExceptionNegativeValue e) {
+					System.out.println(e.getMessage());
+				}
+
+			} while (continueInput);
+
+			continueInput = true;
+
+		}
+
+		int maxBorderAmount = borderAmount[0];
+
+		// Used to get the max border amount of all areas
+		for (int j = 1; j < areaNum; j++) {
+
+			if (borderAmount[j] > maxBorderAmount) {
+				maxBorderAmount = borderAmount[j];
+			}
+
+		}
+
+		int[][] borderX = new int[maxBorderAmount][areaNum];
+		int[][] borderY = new int[maxBorderAmount][areaNum];
+		int currentArea = 0;
+		int nextArea[][] = new int[maxBorderAmount][areaNum];
+
+		// For each area
+		for (int i = 0; i < areaNum; i++) {
+
+			// Give for every single border of the certain area the x , y coordinates as
+			// well as the nextArea
+			for (int j = 0; j < borderAmount[i]; j++) {
+
+				System.out.println("Give the X coordinate for border " + (j + 1) + " :");
+
+				do {
+					try {
+
+						borderX[j][i] = Integer.parseInt(scan.nextLine());
+
+						if (borderX[j][i] < 0)
+							throw new ExceptionNegativeValue();
+
+						if (borderX[j][i] >= areaSizes[i][0])
+							throw new ExceptionNegativeValue("Coordinate out of bounadries. Try again: ");
+
+						continueInput = false;
+
+					} catch (NumberFormatException e) {
+						System.out.println("Wrong border coordinate input. Must be a positive number. Try again: ");
+					} catch (ExceptionNegativeValue e) {
+						System.out.println(e.getMessage());
+					}
+
+				} while (continueInput);
+
+				continueInput = true;
+
+				System.out.println("Give the Y coordinate for border " + (j + 1) + " :");
+
+				do {
+					try {
+
+						borderY[j][i] = Integer.parseInt(scan.nextLine());
+
+						if (borderY[j][i] < 0)
+							throw new ExceptionNegativeValue();
+
+						if (borderY[j][i] >= areaSizes[i][1])
+							throw new ExceptionNegativeValue("Coordinate out of bounadries. Try again: ");
+
+						continueInput = false;
+
+					} catch (NumberFormatException e) {
+						System.out.println("Wrong border coordinate input. Must be a positive number. Try again: ");
+					} catch (ExceptionNegativeValue e) {
+						System.out.println(e.getMessage());
+					}
+
+				} while (continueInput);
+
+				continueInput = true;
+
+				System.out.println("Give the area that this border will teleport the human to [1," + areaNum + "]:");
+
+				do {
+					try {
+
+						nextArea[j][i] = Integer.parseInt(scan.nextLine());
+						// To get the right area number
+						nextArea[j][i]--;
+
+						if (nextArea[j][i] < 0)
+							throw new ExceptionNegativeValue();
+
+						if (nextArea[j][i] >= areaNum)
+							throw new ExceptionNegativeValue("Not valid area. Try again: ");
+
+						continueInput = false;
+
+					} catch (NumberFormatException e) {
+						System.out.println("Wrong area input. Must be a number within the boundaries. Try again: ");
+					} catch (ExceptionNegativeValue e) {
+						System.out.println(e.getMessage());
+					}
+
+				} while (continueInput);
+
+				continueInput = true;
+
+			}
+
 		}
 
 		System.out.println("Give the duration of the simulation: ");
@@ -398,7 +535,20 @@ public class PandemicSimulator {
 		// Create all nessessary Grid and Human[] objects
 		for (int i = 0; i < areaNum; i++) {
 
-			gridsarr[i] = new Grid(areaSizes[i][0], areaSizes[i][1]);
+			int[] tempX = new int[borderX.length];
+			int[] tempY = new int[borderX.length];
+			int[] tempNextArea = new int[borderX.length];
+
+			// Transfer the 2D arrays to 1D arrays to make use in Grid constructor
+			for (int j = 0; j < borderX.length; j++) {
+
+				tempX[j] = borderX[j][areaNum];
+				tempY[j] = borderY[j][areaNum];
+				tempNextArea[j] = nextArea[j][areaNum];
+
+			}
+
+			gridsarr[i] = new Grid(areaSizes[i][0], areaSizes[i][1], tempX, tempY, tempNextArea, borderAmount[i]);
 
 		}
 
@@ -408,17 +558,17 @@ public class PandemicSimulator {
 				humanImmunePer, groundInfHumanPer, counterForEachArea);
 
 //		move(humanNum, humans, timeUnits, width, height, humans2, myGrid, myGrid2);
-		
-		int temp; 	//test
+
+		int temp; // test
 		for (int i = 0; i < timeUnits; i++) {
 			for (int j = 0; j < areaNum; j++) {
 				move(j);
 				StdDraw.show(500);
 				// Draw the next area's humans
-				if (j == (areaNum -1))	
-					temp=0;
+				if (j == (areaNum - 1))
+					temp = 0;
 				else
-					temp=(j+1);
+					temp = (j + 1);
 				drawNext(temp);
 				StdDraw.show(500);
 			}
@@ -475,12 +625,12 @@ public class PandemicSimulator {
 
 	public static void move(int areaNum) {
 
-		for (int j = 0; j < ControlPanel.getGrids()[areaNum].getHumansOnGrid(); j++) { // 
+		for (int j = 0; j < ControlPanel.getGrids()[areaNum].getHumansOnGrid(); j++) { //
 			ControlPanel.getGrids()[areaNum].drawInfectionsBack();
 			ControlPanel.getHumans()[j][areaNum].move();
 			ControlPanel.getHumans()[j][areaNum].chanceToBrandTheSpot();
 			ControlPanel.getHumans()[j][areaNum].chanceToGetInfected();
-			//we must use the method updateGrid too
+			// we must use the method updateGrid too
 		}
 		ControlPanel.getGrids()[areaNum].updateGrid();
 	}
@@ -489,7 +639,7 @@ public class PandemicSimulator {
 		ControlPanel.getGrids()[areaNum].setDimentions();
 		ControlPanel.getGrids()[areaNum].drawGridLines();
 		ControlPanel.getGrids()[areaNum].drawInfectionsBack();
-		for (int j = 0; j < ControlPanel.getGrids()[areaNum].getHumansOnGrid(); j++) { // 
+		for (int j = 0; j < ControlPanel.getGrids()[areaNum].getHumansOnGrid(); j++) { //
 			ControlPanel.getHumans()[j][areaNum].draw();
 		}
 	}
@@ -509,7 +659,8 @@ public class PandemicSimulator {
 	 * @param groundInfHumanPer
 	 */
 	public static void createHumans(int humNum, int infectedHumans, int humanMaskPer, int humanMovePer,
-			int humanInfHumanPer, int humanInfGroundPer, int humanImmunePer, int groundInfHumanPer, int counterForEachArea[]) {
+			int humanInfHumanPer, int humanInfGroundPer, int humanImmunePer, int groundInfHumanPer,
+			int counterForEachArea[]) {
 
 		boolean isInfected = false;
 
@@ -542,11 +693,13 @@ public class PandemicSimulator {
 				isInfected = true;
 
 				if (giveMask)
-					ControlPanel.getHumans()[counterForEachArea[area]][area] = new MaskedMan(isInfected, giveMask, immune, humanMovePer,
-							humanInfHumanPer, humanInfGroundPer, groundInfHumanPer, ControlPanel.getGrids()[area]);
+					ControlPanel.getHumans()[counterForEachArea[area]][area] = new MaskedMan(isInfected, giveMask,
+							immune, humanMovePer, humanInfHumanPer, humanInfGroundPer, groundInfHumanPer,
+							ControlPanel.getGrids()[area]);
 				else
-					ControlPanel.getHumans()[counterForEachArea[area]][area] = new Man(isInfected, giveMask, immune, humanMovePer,
-							humanInfHumanPer, humanInfGroundPer, groundInfHumanPer, ControlPanel.getGrids()[area]);
+					ControlPanel.getHumans()[counterForEachArea[area]][area] = new Man(isInfected, giveMask, immune,
+							humanMovePer, humanInfHumanPer, humanInfGroundPer, groundInfHumanPer,
+							ControlPanel.getGrids()[area]);
 				infectedHumans--;
 
 				// Create normal human
@@ -559,11 +712,13 @@ public class PandemicSimulator {
 					immune = false;
 
 				if (giveMask)
-					ControlPanel.getHumans()[counterForEachArea[area]][area] = new MaskedMan(isInfected, giveMask, immune, humanMovePer,
-							humanInfHumanPer, humanInfGroundPer, groundInfHumanPer, ControlPanel.getGrids()[area]);
+					ControlPanel.getHumans()[counterForEachArea[area]][area] = new MaskedMan(isInfected, giveMask,
+							immune, humanMovePer, humanInfHumanPer, humanInfGroundPer, groundInfHumanPer,
+							ControlPanel.getGrids()[area]);
 				else
-					ControlPanel.getHumans()[counterForEachArea[area]][area] = new Man(isInfected, giveMask, immune, humanMovePer,
-							humanInfHumanPer, humanInfGroundPer, groundInfHumanPer, ControlPanel.getGrids()[area]);
+					ControlPanel.getHumans()[counterForEachArea[area]][area] = new Man(isInfected, giveMask, immune,
+							humanMovePer, humanInfHumanPer, humanInfGroundPer, groundInfHumanPer,
+							ControlPanel.getGrids()[area]);
 			}
 			counterForEachArea[area]++;
 

@@ -51,5 +51,5 @@ public class ControlPanel {
 	public static int getNumOfHumans() {
 		return humans.length;
 	}
-	
+
 }

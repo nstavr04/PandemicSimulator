@@ -21,21 +21,25 @@ public class Grid {
 	// Keep track on how many humans are on every grid
 	private int humansOnGrid;
 
-	private static boolean flag=false;
-	
+	private Border border;
+
+	private static boolean flag = false;
+
 	public Grid(int x, int y) {
 		width = x;
 		height = y;
 		humansOnGrid = 0;
 		// Set the proper dimentions the first time
-//		if (!flag) {
-			setDimentions(width, height);				//test
-//			flag=true;
-//		}
+		setDimentions(width, height);
 		// Draw the grid lines the first time
 		drawGridLines(width, height);
 		// Create the cells the first time
 		createCells(width, height);
+	}
+
+	public Grid(int x, int y, int[] borderX, int[] borderY, int[] nextArea, int counter) {
+		this(x, y);
+		border = new Border(borderX, borderY, nextArea, counter);
 	}
 
 	/**
@@ -52,11 +56,10 @@ public class Grid {
 		for (int i = 0; i <= y; i++)
 			StdDraw.line(0, i, x, i);
 	}
-	
-	public void drawGridLines(){
+
+	public void drawGridLines() {
 		drawGridLines(width, height);
 	}
-	
 
 	/**
 	 * This method takes as parameters the size of the grid (x,y). For better
@@ -76,8 +79,7 @@ public class Grid {
 		StdDraw.setXscale(0, x);
 		StdDraw.setYscale(0, y);
 	}
-	
-	
+
 	public void setDimentions() {
 		setDimentions(width, height);
 	}
@@ -239,23 +241,23 @@ public class Grid {
 	}
 
 	public void setHumansOnGrid(int x) { // set humans in the Grid grid
-		humansOnGrid+=x;
+		humansOnGrid += x;
 	}
-	
+
 	public int getHumansOnGrid() { // set humans in the Grid grid
 		return humansOnGrid;
 	}
-	
+
 	public void drawInfectionsBack() {
-		for (int i=0; i<width; i++) {
-			for (int j=0; j<height; j++) {
-				if (getInfectionPos(i,j)) {
-				StdDraw.setPenColor(StdDraw.RED);
-				StdDraw.square(i + 0.5, j + 0.5, 0.45);
+		for (int i = 0; i < width; i++) {
+			for (int j = 0; j < height; j++) {
+				if (getInfectionPos(i, j)) {
+					StdDraw.setPenColor(StdDraw.RED);
+					StdDraw.square(i + 0.5, j + 0.5, 0.45);
 				}
 			}
 		}
-		
+
 	}
 
 }
