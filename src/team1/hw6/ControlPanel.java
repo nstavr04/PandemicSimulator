@@ -76,16 +76,19 @@ public class ControlPanel {
 	 */
 	public static void teleport(int j, int prevAreaNum, int nextAreaNum) {
 		// j = Human position on array
-		System.out.println("ControlPanel -> teleport -> humans.length: next:" + getGrids()[nextAreaNum].getHumansOnGrid());
-		System.out.println("ControlPanel -> teleport -> humans.length: prev:" + getGrids()[prevAreaNum].getHumansOnGrid());
+		System.out.println(
+				"ControlPanel -> teleport -> humans.length: next:" + getGrids()[nextAreaNum].getHumansOnGrid());
+		System.out.println(
+				"ControlPanel -> teleport -> humans.length: prev:" + getGrids()[prevAreaNum].getHumansOnGrid());
 		for (int i = 0; i < humans.length; i++) { // teleport him
 			if (humans[i][nextAreaNum] == null) {
-				humans[i][nextAreaNum] = humans[j][prevAreaNum];
-				humans[j][prevAreaNum] = null;	//test
+				humans[i][nextAreaNum] = humans[j][prevAreaNum].clone();
+				humans[j][prevAreaNum] = null; // test
 				teleportedIndex = i;
 				break;
 			}
 		}
+
 		for (int i = j; i < humans.length - 1; i++) {
 			System.out.println("2o for sto teleport");
 			if (humans[i + 1][prevAreaNum] != null) {

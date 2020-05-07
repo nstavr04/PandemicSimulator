@@ -8,11 +8,16 @@ import edu.princeton.cs.introcs.StdDraw;
  * 
  * @author nstavr04.mvasil01
  */
-public class Man extends Human {
+public class Man extends Human implements Cloneable {
+
+	public Man(Human man) {
+		super(man);
+	}
 
 	public Man(boolean isInfected, boolean giveMask, boolean immune, int humanMovePer, int humanInfHumanPer,
 			int humanInfGroundPer, int groundInfHumanPer, Grid belongingGrid) {
-		super(isInfected, giveMask, immune, humanMovePer, humanInfHumanPer, humanInfGroundPer, groundInfHumanPer, belongingGrid);
+		super(isInfected, giveMask, immune, humanMovePer, humanInfHumanPer, humanInfGroundPer, groundInfHumanPer,
+				belongingGrid);
 	}
 
 	/**
@@ -72,20 +77,20 @@ public class Man extends Human {
 		startingPos();
 		generateDirection();
 		if (super.isInfected() == true) {
-			
+
 //		if (belongingGrid.getHasInfectedHuman(getCurX(), getCurY()))
 			// if he is infected, set it to the cell
-		belongingGrid.setHasInfectedHuman(getCurX(), getCurY(), true);
-		if (getDirection() == 1)
-			StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleUPWITHVIRUS.JPG", 0.7, 0.7);
-		else if (getDirection() == 2)
-			StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleDOWNWITHVIRUS.JPG", 0.7, 0.7);
-		else if (getDirection() == 3)
-			StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleLEFTWITHVIRUS.JPG", 0.7, 0.7);
-		else if (getDirection() == 4)
-			StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleRIGHTWITHVIRUS.JPG", 0.7, 0.7);
-		
-		}	//test
+			belongingGrid.setHasInfectedHuman(getCurX(), getCurY(), true);
+			if (getDirection() == 1)
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleUPWITHVIRUS.JPG", 0.7, 0.7);
+			else if (getDirection() == 2)
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleDOWNWITHVIRUS.JPG", 0.7, 0.7);
+			else if (getDirection() == 3)
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleLEFTWITHVIRUS.JPG", 0.7, 0.7);
+			else if (getDirection() == 4)
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleRIGHTWITHVIRUS.JPG", 0.7, 0.7);
+
+		} // test
 		else {
 			if (getDirection() == 1)
 				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleUP.JPG", 0.7, 0.7);
@@ -98,23 +103,23 @@ public class Man extends Human {
 
 		}
 	}
-	
+
+	@Override
 	public void draw() {
-		
-		if (super.isInfected() == true) {	
+
+		if (super.isInfected() == true) {
 //			if (belongingGrid.getHasInfectedHuman(getCurX(), getCurY()))
-				// if he is infected, set it to the cell
+			// if he is infected, set it to the cell
 //				belongingGrid.setHasInfectedHuman(getCurX(), getCurY(), true);
-		if (getDirection() == 1)
-			StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleUPWITHVIRUS.JPG", 0.7, 0.7);
-		else if (getDirection() == 2)
-			StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleDOWNWITHVIRUS.JPG", 0.7, 0.7);
-		else if (getDirection() == 3)
-			StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleLEFTWITHVIRUS.JPG", 0.7, 0.7);
-		else if (getDirection() == 4)
-			StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleRIGHTWITHVIRUS.JPG", 0.7, 0.7);
-	}
-		else {
+			if (getDirection() == 1)
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleUPWITHVIRUS.JPG", 0.7, 0.7);
+			else if (getDirection() == 2)
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleDOWNWITHVIRUS.JPG", 0.7, 0.7);
+			else if (getDirection() == 3)
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleLEFTWITHVIRUS.JPG", 0.7, 0.7);
+			else if (getDirection() == 4)
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleRIGHTWITHVIRUS.JPG", 0.7, 0.7);
+		} else {
 			if (getDirection() == 1)
 				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleUP.JPG", 0.7, 0.7);
 			else if (getDirection() == 2)
@@ -125,9 +130,12 @@ public class Man extends Human {
 				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleRIGHT.JPG", 0.7, 0.7);
 
 		}
-		
-		
+
 	}
-	
-	
+
+	@Override
+	public Human clone() {
+		return super(this);
+	}
+
 }

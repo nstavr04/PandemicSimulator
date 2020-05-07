@@ -8,7 +8,11 @@ import edu.princeton.cs.introcs.StdDraw;
  * 
  * @author nstavr04.mvasil01
  */
-public class MaskedMan extends Human {
+public class MaskedMan extends Human implements Cloneable {
+
+	public MaskedMan(MaskedMan maskedMan) {
+		super(maskedMan);
+	}
 
 	public MaskedMan(boolean isInfected, boolean giveMask, boolean immune, int humanMovePer, int humanInfHumanPer,
 			int humanInfGroundPer, int groundInfHumanPer, Grid belongingGrid) {
@@ -81,61 +85,64 @@ public class MaskedMan extends Human {
 //		if (belongingGrid.getHasInfectedHuman(getCurX(), getCurY()))
 			// if he is infected, set it to the cell
 			belongingGrid.setHasInfectedHuman(getCurX(), getCurY(), true);
-		if (getDirection() == 1)
-			StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleMASKEDUPWITHVIRUS.JPG", 0.7, 0.7);
-		else if (getDirection() == 2)
-			StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleMASKEDDOWNWITHVIRUS.JPG", 0.7, 0.7);
-		else if (getDirection() == 3)
-			StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleMASKEDLEFTWITHVIRUS.JPG", 0.7, 0.7);
-		else if (getDirection() == 4)
-			StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleMASKEDRIGHTWITHVIRUS.JPG", 0.7, 0.7);
-
-		}
-		else {
 			if (getDirection() == 1)
-				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleMASKEDUP.JPG", 0.7,
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleMASKEDUPWITHVIRUS.JPG", 0.7,
 						0.7);
 			else if (getDirection() == 2)
-				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleMASKEDDOWN.JPG", 0.7,
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleMASKEDDOWNWITHVIRUS.JPG", 0.7,
 						0.7);
 			else if (getDirection() == 3)
-				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleMASKEDLEFT.JPG", 0.7,
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleMASKEDLEFTWITHVIRUS.JPG", 0.7,
 						0.7);
 			else if (getDirection() == 4)
-				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleMASKEDRIGHT.JPG", 0.7,
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleMASKEDRIGHTWITHVIRUS.JPG", 0.7,
 						0.7);
+
+		} else {
+			if (getDirection() == 1)
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleMASKEDUP.JPG", 0.7, 0.7);
+			else if (getDirection() == 2)
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleMASKEDDOWN.JPG", 0.7, 0.7);
+			else if (getDirection() == 3)
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleMASKEDLEFT.JPG", 0.7, 0.7);
+			else if (getDirection() == 4)
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleMASKEDRIGHT.JPG", 0.7, 0.7);
 
 		}
 	}
-	
+
+	@Override
 	public void draw() {
 		if (super.isInfected() == true) {
-		if (getDirection() == 1)
-			StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleMASKEDUPWITHVIRUS.JPG", 0.7, 0.7);
-		else if (getDirection() == 2)
-			StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleMASKEDDOWNWITHVIRUS.JPG", 0.7, 0.7);
-		else if (getDirection() == 3)
-			StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleMASKEDLEFTWITHVIRUS.JPG", 0.7, 0.7);
-		else if (getDirection() == 4)
-			StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleMASKEDRIGHTWITHVIRUS.JPG", 0.7, 0.7);
-		}
-		else {
 			if (getDirection() == 1)
-				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleMASKEDUP.JPG", 0.7,
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleMASKEDUPWITHVIRUS.JPG", 0.7,
 						0.7);
 			else if (getDirection() == 2)
-				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleMASKEDDOWN.JPG", 0.7,
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleMASKEDDOWNWITHVIRUS.JPG", 0.7,
 						0.7);
 			else if (getDirection() == 3)
-				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleMASKEDLEFT.JPG", 0.7,
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleMASKEDLEFTWITHVIRUS.JPG", 0.7,
 						0.7);
 			else if (getDirection() == 4)
-				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleMASKEDRIGHT.JPG", 0.7,
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleMASKEDRIGHTWITHVIRUS.JPG", 0.7,
 						0.7);
+		} else {
+			if (getDirection() == 1)
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleMASKEDUP.JPG", 0.7, 0.7);
+			else if (getDirection() == 2)
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleMASKEDDOWN.JPG", 0.7, 0.7);
+			else if (getDirection() == 3)
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleMASKEDLEFT.JPG", 0.7, 0.7);
+			else if (getDirection() == 4)
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleMASKEDRIGHT.JPG", 0.7, 0.7);
 
 		}
-		
-		}
-	
-	
+
+	}
+
+	@Override
+	public Human clone() {
+		return new MaskedMan(this);
+	}
+
 }

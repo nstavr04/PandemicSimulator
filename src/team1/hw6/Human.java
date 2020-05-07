@@ -37,7 +37,7 @@ public abstract class Human {
 
 	private int curX;
 	private int curY;
-	
+
 	private int prevX;
 	private int prevY;
 
@@ -60,6 +60,29 @@ public abstract class Human {
 	public abstract void firstDraw();
 
 	public abstract void draw();
+
+	public Human(Human hum) {
+
+		this.infected = hum.infected;
+		this.immune = hum.immune;
+		this.wearMask = hum.wearMask;
+		this.humanInfHumanPer = hum.humanInfHumanPer;
+		this.humanInfGroundPer = hum.humanInfHumanPer;
+		this.groundInfHumanPer = hum.groundInfHumanPer;
+		this.gridX = hum.gridX;
+		this.gridY = hum.gridY;
+		this.nextX = hum.nextX;
+		this.nextY = hum.nextY;
+		this.curX = hum.curX;
+		this.curY = hum.curY;
+		this.prevX = hum.prevX;
+		this.prevY = hum.prevY;
+
+		this.direction = hum.direction;
+
+		this.belongingGrid = hum.belongingGrid;
+
+	}
 
 	public Human(boolean isInfected, boolean giveMask, boolean immune, int humanMovePer, int humanInfHumanPer,
 			int humanInfGroundPer, int groundInfHumanPer, Grid belongingGrid) {
@@ -104,9 +127,9 @@ public abstract class Human {
 		}
 		// marking the pos of the person
 		belongingGrid.setBoardPos(curX, curY, true);
-		
-		prevX=curX;	//new
-		prevY=curY; //new
+
+		prevX = curX; // new
+		prevY = curY; // new
 	}
 
 	/**
@@ -145,7 +168,7 @@ public abstract class Human {
 		// the previews place is not inhabited now
 		belongingGrid.setBoardPos(curX, curY, false);
 		// the next place is inhabited now
-		belongingGrid.setBoardPos(nextX, nextY, true);	//an o anthropos allakse grid...
+		belongingGrid.setBoardPos(nextX, nextY, true); // an o anthropos allakse grid...
 		return true;
 	}
 
@@ -398,7 +421,10 @@ public abstract class Human {
 	public int getPrevY() {
 		return prevY;
 	}
-	
-	
+
+	@Override
+	public Human clone() {
+		return Man(this);
+	}
 
 }
