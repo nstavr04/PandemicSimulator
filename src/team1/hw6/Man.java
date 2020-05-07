@@ -39,28 +39,32 @@ public class Man extends Human implements Cloneable {
 					// if he is infected, set it to the cell
 					belongingGrid.setHasInfectedHuman(getNextX(), getNextY(), true);
 					if (getDirection() == 1)
-						StdDraw.picture(getNextX() + 0.5, getNextY() + 0.5, "PersonAboveViewSingleUPWITHVIRUS.JPG", 0.7,
-								0.7);
+						StdDraw.picture(getNextX() + 0.5, getNextY() + 0.5,
+								"Images/PersonAboveViewSingleUPWITHVIRUS.JPG", 0.7, 0.7);
 					else if (getDirection() == 2)
-						StdDraw.picture(getNextX() + 0.5, getNextY() + 0.5, "PersonAboveViewSingleDOWNWITHVIRUS.JPG",
-								0.7, 0.7);
+						StdDraw.picture(getNextX() + 0.5, getNextY() + 0.5,
+								"Images/PersonAboveViewSingleDOWNWITHVIRUS.JPG", 0.7, 0.7);
 					else if (getDirection() == 3)
-						StdDraw.picture(getNextX() + 0.5, getNextY() + 0.5, "PersonAboveViewSingleLEFTWITHVIRUS.JPG",
-								0.7, 0.7);
+						StdDraw.picture(getNextX() + 0.5, getNextY() + 0.5,
+								"Images/PersonAboveViewSingleLEFTWITHVIRUS.JPG", 0.7, 0.7);
 					else if (getDirection() == 4)
-						StdDraw.picture(getNextX() + 0.5, getNextY() + 0.5, "PersonAboveViewSingleRIGHTWITHVIRUS.JPG",
-								0.7, 0.7);
+						StdDraw.picture(getNextX() + 0.5, getNextY() + 0.5,
+								"Images/PersonAboveViewSingleRIGHTWITHVIRUS.JPG", 0.7, 0.7);
 				}
 
 				else {
 					if (getDirection() == 1)
-						StdDraw.picture(getNextX() + 0.5, getNextY() + 0.5, "PersonAboveViewSingleUP.JPG", 0.7, 0.7);
+						StdDraw.picture(getNextX() + 0.5, getNextY() + 0.5, "Images/PersonAboveViewSingleUP.JPG", 0.7,
+								0.7);
 					else if (getDirection() == 2)
-						StdDraw.picture(getNextX() + 0.5, getNextY() + 0.5, "PersonAboveViewSingleDOWN.JPG", 0.7, 0.7);
+						StdDraw.picture(getNextX() + 0.5, getNextY() + 0.5, "Images/PersonAboveViewSingleDOWN.JPG", 0.7,
+								0.7);
 					else if (getDirection() == 3)
-						StdDraw.picture(getNextX() + 0.5, getNextY() + 0.5, "PersonAboveViewSingleLEFT.JPG", 0.7, 0.7);
+						StdDraw.picture(getNextX() + 0.5, getNextY() + 0.5, "Images/PersonAboveViewSingleLEFT.JPG", 0.7,
+								0.7);
 					else if (getDirection() == 4)
-						StdDraw.picture(getNextX() + 0.5, getNextY() + 0.5, "PersonAboveViewSingleRIGHT.JPG", 0.7, 0.7);
+						StdDraw.picture(getNextX() + 0.5, getNextY() + 0.5, "Images/PersonAboveViewSingleRIGHT.JPG",
+								0.7, 0.7);
 
 				}
 
@@ -78,28 +82,30 @@ public class Man extends Human implements Cloneable {
 		generateDirection();
 		if (super.isInfected() == true) {
 
-
 //			 set it to the cell
 			belongingGrid.setHasInfectedHuman(getCurX(), getCurY(), true);
 			if (getDirection() == 1)
-				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleUPWITHVIRUS.JPG", 0.7, 0.7);
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "Images/PersonAboveViewSingleUPWITHVIRUS.JPG", 0.7,
+						0.7);
 			else if (getDirection() == 2)
-				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleDOWNWITHVIRUS.JPG", 0.7, 0.7);
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "Images/PersonAboveViewSingleDOWNWITHVIRUS.JPG", 0.7,
+						0.7);
 			else if (getDirection() == 3)
-				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleLEFTWITHVIRUS.JPG", 0.7, 0.7);
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "Images/PersonAboveViewSingleLEFTWITHVIRUS.JPG", 0.7,
+						0.7);
 			else if (getDirection() == 4)
-				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleRIGHTWITHVIRUS.JPG", 0.7, 0.7);
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "Images/PersonAboveViewSingleRIGHTWITHVIRUS.JPG", 0.7,
+						0.7);
 
-		}
-		else {
+		} else {
 			if (getDirection() == 1)
-				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleUP.JPG", 0.7, 0.7);
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "Images/PersonAboveViewSingleUP.JPG", 0.7, 0.7);
 			else if (getDirection() == 2)
-				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleDOWN.JPG", 0.7, 0.7);
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "Images/PersonAboveViewSingleDOWN.JPG", 0.7, 0.7);
 			else if (getDirection() == 3)
-				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleLEFT.JPG", 0.7, 0.7);
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "Images/PersonAboveViewSingleLEFT.JPG", 0.7, 0.7);
 			else if (getDirection() == 4)
-				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleRIGHT.JPG", 0.7, 0.7);
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "Images/PersonAboveViewSingleRIGHT.JPG", 0.7, 0.7);
 
 		}
 	}
@@ -111,25 +117,29 @@ public class Man extends Human implements Cloneable {
 	public void draw() {
 
 		if (super.isInfected() == true) {
-			//set it to the cell
-				belongingGrid.setHasInfectedHuman(getCurX(), getCurY(), true);
+			// set it to the cell
+			belongingGrid.setHasInfectedHuman(getCurX(), getCurY(), true);
 			if (getDirection() == 1)
-				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleUPWITHVIRUS.JPG", 0.7, 0.7);
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "Images/PersonAboveViewSingleUPWITHVIRUS.JPG", 0.7,
+						0.7);
 			else if (getDirection() == 2)
-				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleDOWNWITHVIRUS.JPG", 0.7, 0.7);
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "Images/PersonAboveViewSingleDOWNWITHVIRUS.JPG", 0.7,
+						0.7);
 			else if (getDirection() == 3)
-				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleLEFTWITHVIRUS.JPG", 0.7, 0.7);
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "Images/PersonAboveViewSingleLEFTWITHVIRUS.JPG", 0.7,
+						0.7);
 			else if (getDirection() == 4)
-				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleRIGHTWITHVIRUS.JPG", 0.7, 0.7);
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "Images/PersonAboveViewSingleRIGHTWITHVIRUS.JPG", 0.7,
+						0.7);
 		} else {
 			if (getDirection() == 1)
-				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleUP.JPG", 0.7, 0.7);
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "Images/PersonAboveViewSingleUP.JPG", 0.7, 0.7);
 			else if (getDirection() == 2)
-				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleDOWN.JPG", 0.7, 0.7);
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "Images/PersonAboveViewSingleDOWN.JPG", 0.7, 0.7);
 			else if (getDirection() == 3)
-				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleLEFT.JPG", 0.7, 0.7);
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "Images/PersonAboveViewSingleLEFT.JPG", 0.7, 0.7);
 			else if (getDirection() == 4)
-				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleRIGHT.JPG", 0.7, 0.7);
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "Images/PersonAboveViewSingleRIGHT.JPG", 0.7, 0.7);
 
 		}
 
