@@ -145,7 +145,7 @@ public abstract class Human {
 		// the previews place is not inhabited now
 		belongingGrid.setBoardPos(curX, curY, false);
 		// the next place is inhabited now
-		belongingGrid.setBoardPos(nextX, nextY, true);
+		belongingGrid.setBoardPos(nextX, nextY, true);	//an o anthropos allakse grid...
 		return true;
 	}
 
