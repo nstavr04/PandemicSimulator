@@ -25,6 +25,15 @@ public class Grid {
 
 	private static boolean flag = false;
 
+	public Grid(Grid bgrid) {
+		this.width = bgrid.width;
+		this.height = bgrid.height;
+		this.humansOnGrid = bgrid.humansOnGrid;
+		this.border = bgrid.border;
+		this.c1 = bgrid.c1;
+
+	}
+
 	public Grid(int x, int y) {
 		width = x;
 		height = y;

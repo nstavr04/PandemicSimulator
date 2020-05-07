@@ -395,7 +395,10 @@ public abstract class Human {
 	 * @param belongingGrid the belongingGrid to set
 	 */
 	public void setBelongingGrid(Grid belongingGrid) {
-		this.belongingGrid = belongingGrid;
+
+		Grid grid = new Grid(belongingGrid);
+
+		this.belongingGrid = grid;
 		this.gridX = belongingGrid.getWidth();
 		this.gridY = belongingGrid.getHeight();
 	}
@@ -420,7 +423,8 @@ public abstract class Human {
 	public int getPrevY() {
 		return prevY;
 	}
-	
+
+	@Override
 	public abstract Human clone();
 
 }
