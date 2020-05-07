@@ -257,34 +257,34 @@ public class PandemicSimulator {
 			}
 
 		}
-
+		
 		System.out.println("BorderX:");
-		for (int i = 0; i < borderX.length; i++) {
-			for (int j = 0; j < borderX[0].length; j++) {
+		for (int i=0; i<borderX.length; i++) {
+			for (int j=0; j<borderX[0].length; j++) {
 				System.out.print(borderX[i][j] + " ");
 			}
 			System.out.println();
 		}
-
+		
 		System.out.println("BorderY:");
-		for (int i = 0; i < borderX.length; i++) {
-			for (int j = 0; j < borderX[0].length; j++) {
+		for (int i=0; i<borderX.length; i++) {
+			for (int j=0; j<borderX[0].length; j++) {
 				System.out.print(borderY[i][j] + " ");
 			}
 			System.out.println();
 		}
-
+		
 		System.out.println("nextArea:");
-		for (int i = 0; i < borderX.length; i++) {
-			for (int j = 0; j < borderX[0].length; j++) {
+		for (int i=0; i<borderX.length; i++) {
+			for (int j=0; j<borderX[0].length; j++) {
 				System.out.print(nextArea[i][j] + " ");
 			}
 			System.out.println();
 		}
-
+		
 		System.out.println("borderAmount:");
-		for (int i = 0; i < borderAmount.length; i++) {
-
+		for (int i=0; i<borderAmount.length; i++) {
+			
 			System.out.print(borderAmount[i] + " ");
 		}
 
@@ -646,8 +646,7 @@ public class PandemicSimulator {
 			}
 			// test
 //			StdDraw.show(400); // 10->200, 20-->100
-			myGrid.updateGrid();
-			myGrid2.updateGrid();
+
 		}
 
 	}
@@ -655,43 +654,43 @@ public class PandemicSimulator {
 	public static void move(int areaNum, Grid[] gridsarr) {
 		int counter = 0;
 		System.out.println("Humans on Grid: " + ControlPanel.getGrids()[areaNum].getHumansOnGrid());
-		// ControlPanel.getGrids()[areaNum].getHumansOnGrid()
 		for (int j = 0; j < ControlPanel.getHumans().length; j++) { //
 			if (ControlPanel.getHumans()[j][areaNum] != null) {
-				ControlPanel.getGrids()[areaNum].drawInfectionsBack();
-				ControlPanel.getHumans()[j][areaNum].move();
-				ControlPanel.getHumans()[j][areaNum].chanceToBrandTheSpot();
-				ControlPanel.getHumans()[j][areaNum].chanceToGetInfected();
-				if (ControlPanel.getHumans()[j][areaNum].isInBorder() != -1) {
-					counter--;
-					int nextArea = ControlPanel.getHumans()[j][areaNum].isInBorder();
-
-					ControlPanel.getGrids()[areaNum].setBoardPos(ControlPanel.getHumans()[j][areaNum].getCurX(),
-							ControlPanel.getHumans()[j][areaNum].getCurY(), false);
-
-					ControlPanel.getGrids()[areaNum].setHasInfectedHuman(ControlPanel.getHumans()[j][areaNum].getCurX(),
-							ControlPanel.getHumans()[j][areaNum].getCurY(), false);
-
-					ControlPanel.teleport(j, areaNum, nextArea);
-					ControlPanel.getHumans()[ControlPanel.getTeleportedIndex()][nextArea]
-							.setBelongingGrid(gridsarr[nextArea]);
-					ControlPanel.getHumans()[ControlPanel.getTeleportedIndex()][nextArea].startingPos();
-					ControlPanel.getGrids()[nextArea].setHumansOnGrid(1);
-				}
+			ControlPanel.getGrids()[areaNum].drawInfectionsBack();
+			ControlPanel.getHumans()[j][areaNum].move();
+			ControlPanel.getHumans()[j][areaNum].chanceToBrandTheSpot();
+			ControlPanel.getHumans()[j][areaNum].chanceToGetInfected();
+			if (ControlPanel.getHumans()[j][areaNum].isInBorder() != -1) {
+					if (ControlPanel.getGrids()[ControlPanel.getHumans()[j][areaNum].isInBorder()]
+							.getHumansOnGrid() < (ControlPanel.getGrids()[ControlPanel.getHumans()[j][areaNum]
+									.isInBorder()].getHeight()
+									* ControlPanel.getGrids()[ControlPanel.getHumans()[j][areaNum].isInBorder()]
+											.getWidth())) {
+				System.out.println("is in border");
+				counter--;
+				int nextArea = ControlPanel.getHumans()[j][areaNum].isInBorder();
+				
+				ControlPanel.getGrids()[areaNum].setBoardPos(ControlPanel.getHumans()[j][areaNum].getCurX(), ControlPanel.getHumans()[j][areaNum].getCurY(), false);
+				
+				ControlPanel.getGrids()[areaNum].setHasInfectedHuman(ControlPanel.getHumans()[j][areaNum].getCurX(), ControlPanel.getHumans()[j][areaNum].getCurY(), false);
+				
+				ControlPanel.teleport(j, areaNum, nextArea);
+				ControlPanel.getHumans()[ControlPanel.getTeleportedIndex()][nextArea].setBelongingGrid(gridsarr[nextArea]);
+				ControlPanel.getHumans()[ControlPanel.getTeleportedIndex()][nextArea].startingPos();
+				ControlPanel.getGrids()[nextArea].setHumansOnGrid(1);
+			}
 			}
 		}
 		ControlPanel.getGrids()[areaNum].setHumansOnGrid(counter);
-		counter = 0;
+		counter=0;
 		ControlPanel.getGrids()[areaNum].updateGrid();
 	}
-
+	}
 	public static void drawNext(int areaNum) {
-
 		ControlPanel.getGrids()[areaNum].setDimentions();
 		ControlPanel.getGrids()[areaNum].drawGridLines();
 		ControlPanel.getGrids()[areaNum].drawInfectionsBack();
-		// ControlPanel.getGrids()[areaNum].getHumansOnGrid()
-		for (int j = 0; j < ControlPanel.getHumans().length; j++) { //
+		for (int j = 0; j <  ControlPanel.getHumans().length; j++) { //
 			if (ControlPanel.getHumans()[j][areaNum] != null) {
 				ControlPanel.getHumans()[j][areaNum].draw();
 			}
