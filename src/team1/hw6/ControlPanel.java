@@ -70,38 +70,25 @@ public class ControlPanel {
 	 * Transfers a human to human array of the other area and fils the spot on the
 	 * previous array
 	 * 
-	 * @param j
+	 * @param j           Human position on array
 	 * @param prevAreaNum
 	 * @param nextAreaNum
 	 */
 	public static void teleport(int j, int prevAreaNum, int nextAreaNum) {
-		// j = Human position on array
 		System.out.println(
-				"ControlPanel -> teleport -> humans.length: next:" + getGrids()[nextAreaNum].getHumansOnGrid());
-		System.out.println(
-				"ControlPanel -> teleport -> humans.length: prev:" + getGrids()[prevAreaNum].getHumansOnGrid());
+				"A human has been teleported from area " + (prevAreaNum + 1) + " to area " + (nextAreaNum + 1));
 
 		teleportedIndex = 0;
 
-		for (int i = 0; i < humans.length; i++) { // teleport him
+		for (int i = 0; i < humans.length; i++) {
+			// teleport him
 			if (humans[i][nextAreaNum] == null) {
 				humans[i][nextAreaNum] = humans[j][prevAreaNum].clone();
-				humans[j][prevAreaNum] = null; // test
+				humans[j][prevAreaNum] = null;
 				teleportedIndex = i;
 				break;
 			}
 		}
-
-//		for (int i = j; i < humans.length - 1; i++) {
-//			System.out.println("2o for sto teleport");
-//			if (humans[i + 1][prevAreaNum] != null) {
-//				System.out.println("2o for sto teleport mesa sto if");
-//				humans[i][prevAreaNum] = humans[i + 1][prevAreaNum].clone();
-//				humans[i + 1][prevAreaNum] = null;
-//			}
-//		}
-		// getGrids()[nextAreaNum].getHumansOnGrid()
-		// getGrids()[prevAreaNum].getHumansOnGrid()
 
 	}
 
@@ -109,7 +96,6 @@ public class ControlPanel {
 	 * @return the teleported human index on the array
 	 */
 	public static int getTeleportedIndex() {
-		System.out.println("teleported index: " + teleportedIndex);
 		return teleportedIndex;
 	}
 

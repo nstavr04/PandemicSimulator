@@ -174,7 +174,7 @@ public class PandemicSimulator {
 			// well as the nextArea
 			for (int j = 0; j < borderAmount[i]; j++) {
 
-				System.out.println("Give the X coordinate for border " + (j + 1) + " :");
+				System.out.println("Give the X coordinate for border " + (j + 1) + " of area " + (i + 1));
 
 				do {
 					try {
@@ -199,7 +199,7 @@ public class PandemicSimulator {
 
 				continueInput = true;
 
-				System.out.println("Give the Y coordinate for border " + (j + 1) + " :");
+				System.out.println("Give the Y coordinate for border " + (j + 1) + " of area " + (i + 1));
 
 				do {
 					try {
@@ -224,7 +224,7 @@ public class PandemicSimulator {
 
 				continueInput = true;
 
-				System.out.println("Give the area that this border will teleport the human to [1," + areaNum + "]:");
+				System.out.println("Give the area that this border will teleport the human to: [1 - " + areaNum + "]:");
 
 				do {
 					try {
@@ -253,36 +253,6 @@ public class PandemicSimulator {
 
 			}
 
-		}
-
-		System.out.println("BorderX:");
-		for (int i = 0; i < borderX.length; i++) {
-			for (int j = 0; j < borderX[0].length; j++) {
-				System.out.print(borderX[i][j] + " ");
-			}
-			System.out.println();
-		}
-
-		System.out.println("BorderY:");
-		for (int i = 0; i < borderX.length; i++) {
-			for (int j = 0; j < borderX[0].length; j++) {
-				System.out.print(borderY[i][j] + " ");
-			}
-			System.out.println();
-		}
-
-		System.out.println("nextArea:");
-		for (int i = 0; i < borderX.length; i++) {
-			for (int j = 0; j < borderX[0].length; j++) {
-				System.out.print(nextArea[i][j] + " ");
-			}
-			System.out.println();
-		}
-
-		System.out.println("borderAmount:");
-		for (int i = 0; i < borderAmount.length; i++) {
-
-			System.out.print(borderAmount[i] + " ");
 		}
 
 		System.out.println("Give the duration of the simulation: ");
@@ -605,7 +575,6 @@ public class PandemicSimulator {
 	 */
 	public static void move(int areaNum, Grid[] gridsarr) {
 		int counter = 0;
-		System.out.println("Humans on Grid: " + ControlPanel.getGrids()[areaNum].getHumansOnGrid());
 		for (int j = 0; j < ControlPanel.getHumans().length; j++) { //
 			if (ControlPanel.getHumans()[j][areaNum] != null) {
 				ControlPanel.getGrids()[areaNum].drawInfectionsBack();
@@ -618,7 +587,6 @@ public class PandemicSimulator {
 									.isInBorder()].getHeight()
 									* ControlPanel.getGrids()[ControlPanel.getHumans()[j][areaNum].isInBorder()]
 											.getWidth())) {
-						System.out.println("is in border");
 						counter--;
 						int nextArea = ControlPanel.getHumans()[j][areaNum].isInBorder();
 
