@@ -654,13 +654,14 @@ public class PandemicSimulator {
 
 	public static void move(int areaNum, Grid[] gridsarr) {
 		int counter = 0;
+		System.out.println("Humans on Grid: " + ControlPanel.getGrids()[areaNum].getHumansOnGrid());
 		for (int j = 0; j < ControlPanel.getGrids()[areaNum].getHumansOnGrid(); j++) { //
 			ControlPanel.getGrids()[areaNum].drawInfectionsBack();
 			ControlPanel.getHumans()[j][areaNum].move();
 			ControlPanel.getHumans()[j][areaNum].chanceToBrandTheSpot();
 			ControlPanel.getHumans()[j][areaNum].chanceToGetInfected();
 			if (ControlPanel.getHumans()[j][areaNum].isInBorder() != -1) {
-				counter++;
+				counter--;
 				int nextArea = ControlPanel.getHumans()[j][areaNum].isInBorder();
 				
 				ControlPanel.getGrids()[areaNum].setBoardPos(ControlPanel.getHumans()[j][areaNum].getCurX(), ControlPanel.getHumans()[j][areaNum].getCurY(), false);
@@ -673,7 +674,7 @@ public class PandemicSimulator {
 				ControlPanel.getGrids()[nextArea].setHumansOnGrid(1);
 			}	
 		}
-		ControlPanel.getGrids()[areaNum].setHumansOnGrid(-counter);
+		ControlPanel.getGrids()[areaNum].setHumansOnGrid(counter);
 		counter=0;
 		ControlPanel.getGrids()[areaNum].updateGrid();
 	}

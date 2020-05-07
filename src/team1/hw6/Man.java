@@ -10,8 +10,8 @@ import edu.princeton.cs.introcs.StdDraw;
  */
 public class Man extends Human implements Cloneable {
 
-	public Man(Human man) {
-		super(man);
+	public Man(Man other) {
+		super(other);
 	}
 
 	public Man(boolean isInfected, boolean giveMask, boolean immune, int humanMovePer, int humanInfHumanPer,
@@ -135,7 +135,7 @@ public class Man extends Human implements Cloneable {
 
 	@Override
 	public Human clone() {
-		return super(this);
+		return new Man(this);
 	}
 
 }

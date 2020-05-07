@@ -82,7 +82,7 @@ public class ControlPanel {
 				"ControlPanel -> teleport -> humans.length: prev:" + getGrids()[prevAreaNum].getHumansOnGrid());
 		for (int i = 0; i < humans.length; i++) { // teleport him
 			if (humans[i][nextAreaNum] == null) {
-				humans[i][nextAreaNum] = humans[j][prevAreaNum].clone();
+				humans[i][nextAreaNum] = (Human)humans[j][prevAreaNum].clone();
 				humans[j][prevAreaNum] = null; // test
 				teleportedIndex = i;
 				break;
@@ -92,7 +92,8 @@ public class ControlPanel {
 		for (int i = j; i < humans.length - 1; i++) {
 			System.out.println("2o for sto teleport");
 			if (humans[i + 1][prevAreaNum] != null) {
-				humans[i][prevAreaNum] = humans[i + 1][prevAreaNum];
+				System.out.println("2o for sto teleport mesa sto if");
+				humans[i][prevAreaNum] = (Human)humans[i + 1][prevAreaNum].clone();
 				humans[i + 1][prevAreaNum] = null;
 			}
 		}

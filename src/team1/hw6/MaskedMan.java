@@ -10,8 +10,8 @@ import edu.princeton.cs.introcs.StdDraw;
  */
 public class MaskedMan extends Human implements Cloneable {
 
-	public MaskedMan(MaskedMan maskedMan) {
-		super(maskedMan);
+	public MaskedMan(MaskedMan other) {
+		super(other);
 	}
 
 	public MaskedMan(boolean isInfected, boolean giveMask, boolean immune, int humanMovePer, int humanInfHumanPer,

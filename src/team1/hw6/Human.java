@@ -62,7 +62,6 @@ public abstract class Human {
 	public abstract void draw();
 
 	public Human(Human hum) {
-
 		this.infected = hum.infected;
 		this.immune = hum.immune;
 		this.wearMask = hum.wearMask;
@@ -421,10 +420,7 @@ public abstract class Human {
 	public int getPrevY() {
 		return prevY;
 	}
-
-	@Override
-	public Human clone() {
-		return Man(this);
-	}
+	
+	public abstract Human clone();
 
 }
