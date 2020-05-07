@@ -664,7 +664,7 @@ public class PandemicSimulator {
 
 			// Used to determine on which area each human will go
 			int area = (int) (Math.random() * ControlPanel.getNumOfAreas());
-			ControlPanel.getGrids()[area].setHumansOnGrid(1); // elpizoume
+			ControlPanel.getGrids()[area].setHumansOnGrid(1);
 
 			// Make human have infection
 			if (infectedHumans > 0) {

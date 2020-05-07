@@ -82,8 +82,7 @@ public class MaskedMan extends Human implements Cloneable {
 		startingPos();
 		generateDirection();
 		if (super.isInfected() == true) {
-//		if (belongingGrid.getHasInfectedHuman(getCurX(), getCurY()))
-			// if he is infected, set it to the cell
+			//set it to the cell
 			belongingGrid.setHasInfectedHuman(getCurX(), getCurY(), true);
 			if (getDirection() == 1)
 				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleMASKEDUPWITHVIRUS.JPG", 0.7,
@@ -111,6 +110,9 @@ public class MaskedMan extends Human implements Cloneable {
 		}
 	}
 
+	/**
+	 *	This method draws the human on the canvas
+	 */
 	@Override
 	public void draw() {
 		if (super.isInfected() == true) {
