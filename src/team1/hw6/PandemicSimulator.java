@@ -663,7 +663,9 @@ public class PandemicSimulator {
 				counter++;
 				int nextArea = ControlPanel.getHumans()[j][areaNum].isInBorder();
 				
-				ControlPanel.getGrids()[areaNum].setBoardPos(ControlPanel.getHumans()[j][areaNum].getPrevX(), ControlPanel.getHumans()[j][areaNum].getPrevY(), false);
+				ControlPanel.getGrids()[areaNum].setBoardPos(ControlPanel.getHumans()[j][areaNum].getCurX(), ControlPanel.getHumans()[j][areaNum].getCurY(), false);
+				
+				ControlPanel.getGrids()[areaNum].setHasInfectedHuman(ControlPanel.getHumans()[j][areaNum].getCurX(), ControlPanel.getHumans()[j][areaNum].getCurY(), false);
 				
 				ControlPanel.teleport(j, areaNum, nextArea);
 				ControlPanel.getHumans()[ControlPanel.getTeleportedIndex()][nextArea].setBelongingGrid(gridsarr[nextArea]);
@@ -671,9 +673,7 @@ public class PandemicSimulator {
 				ControlPanel.getGrids()[nextArea].setHumansOnGrid(1);
 			}	
 		}
-		for (int i=0; i< counter; i++){
-			ControlPanel.getGrids()[areaNum].setHumansOnGrid(-1);
-		}
+		ControlPanel.getGrids()[areaNum].setHumansOnGrid(-counter);
 		counter=0;
 		ControlPanel.getGrids()[areaNum].updateGrid();
 	}

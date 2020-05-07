@@ -104,7 +104,7 @@ public class Man extends Human {
 		if (super.isInfected() == true) {	
 //			if (belongingGrid.getHasInfectedHuman(getCurX(), getCurY()))
 				// if he is infected, set it to the cell
-				belongingGrid.setHasInfectedHuman(getCurX(), getCurY(), true);
+//				belongingGrid.setHasInfectedHuman(getCurX(), getCurY(), true);
 		if (getDirection() == 1)
 			StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "PersonAboveViewSingleUPWITHVIRUS.JPG", 0.7, 0.7);
 		else if (getDirection() == 2)
