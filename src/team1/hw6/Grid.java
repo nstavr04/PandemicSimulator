@@ -37,9 +37,9 @@ public class Grid {
 		createCells(width, height);
 	}
 
-	public Grid(int x, int y, int[] borderX, int[] borderY, int[] nextArea, int counter) {
+	public Grid(int x, int y, int[] borderX, int[] borderY, int[] nextArea, int borderAmount) {
 		this(x, y);
-		border = new Border(borderX, borderY, nextArea, counter, width, height);
+		border = new Border(borderX, borderY, nextArea, borderAmount, width, height);
 	}
 
 	/**

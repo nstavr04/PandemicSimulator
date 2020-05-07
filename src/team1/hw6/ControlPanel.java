@@ -86,7 +86,7 @@ public class ControlPanel {
 			}
 		}
 		for (int i = j; i < humans.length - 1; i++) {
-//			if (humans[i+1][prevAreaNum] != null)
+			if (humans[i+1][prevAreaNum] != null)
 			humans[i][prevAreaNum] = humans[i + 1][prevAreaNum];
 		}
 		// getGrids()[nextAreaNum].getHumansOnGrid()

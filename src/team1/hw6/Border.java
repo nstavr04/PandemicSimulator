@@ -20,23 +20,23 @@ public class Border {
 
 	private int[] nextArea;
 
-	private int counter; // num of borders
+	private int borderAmount; // num of borders
 
-	public Border(int[] borderX, int[] borderY, int[] nextArea, int counter, int xGrid, int yGrid) {
+	public Border(int[] borderX, int[] borderY, int[] nextArea, int borderAmount, int xGrid, int yGrid) {
 
-		this.borderX = new int[counter];
+		this.borderAmount = borderAmount;
+		
+		this.borderX = new int[borderAmount];
 		this.borderX = borderX;
 
-		this.borderY = new int[counter];
+		this.borderY = new int[borderAmount];
 		this.borderY = borderY;
 
-		this.nextArea = new int[counter];
+		this.nextArea = new int[borderAmount];
 		this.nextArea = nextArea;
 
 		this.xGrid = xGrid;
 		this.yGrid = yGrid;
-
-		this.counter = counter;
 
 	}
 
@@ -77,7 +77,7 @@ public class Border {
 	 * @return
 	 */
 	public int isInBoarder(int x, int y) { // x,y = current pos of human
-		for (int i = 0; i < counter; i++) {
+		for (int i = 0; i < borderAmount; i++) {
 			if (borderX[i] == x && borderY[i] == y) {
 				return nextArea[i];
 			}

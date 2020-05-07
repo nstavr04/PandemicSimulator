@@ -37,6 +37,9 @@ public abstract class Human {
 
 	private int curX;
 	private int curY;
+	
+	private int prevX;
+	private int prevY;
 
 	// keep track how many humans are created
 	private static int humanCounter = 0;
@@ -101,6 +104,9 @@ public abstract class Human {
 		}
 		// marking the pos of the person
 		belongingGrid.setBoardPos(curX, curY, true);
+		
+		prevX=curX;	//new
+		prevY=curY; //new
 	}
 
 	/**
@@ -156,6 +162,8 @@ public abstract class Human {
 	 * Updates the coordinates
 	 */
 	public void updatePosition() {
+		prevX = curX;
+		prevY = curY;
 		curX = nextX;
 		curY = nextY;
 	}
@@ -366,13 +374,31 @@ public abstract class Human {
 	 */
 	public void setBelongingGrid(Grid belongingGrid) {
 		this.belongingGrid = belongingGrid;
+		this.gridX = belongingGrid.getWidth();
+		this.gridY = belongingGrid.getHeight();
 	}
 
 	/**
 	 * @return
 	 */
 	public int isInBorder() {
-		return belongingGrid.isInBorder(curX, curY);
+		return this.belongingGrid.isInBorder(curX, curY);
 	}
+
+	/**
+	 * @return the prevX
+	 */
+	public int getPrevX() {
+		return prevX;
+	}
+
+	/**
+	 * @return the prevY
+	 */
+	public int getPrevY() {
+		return prevY;
+	}
+	
+	
 
 }
