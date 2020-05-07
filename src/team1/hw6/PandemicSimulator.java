@@ -607,8 +607,8 @@ public class PandemicSimulator {
 			}
 			ControlPanel.getGrids()[areaNum].setHumansOnGrid(counter);
 			counter = 0;
-			ControlPanel.getGrids()[areaNum].updateGrid();
 		}
+		ControlPanel.getGrids()[areaNum].updateGrid();
 	}
 
 	public static void drawNext(int areaNum) {
