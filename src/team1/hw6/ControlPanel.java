@@ -102,7 +102,7 @@ public class ControlPanel {
 //		}
 		// getGrids()[nextAreaNum].getHumansOnGrid()
 		// getGrids()[prevAreaNum].getHumansOnGrid()
-		//
+
 	}
 
 	/**
