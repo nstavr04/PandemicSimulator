@@ -81,13 +81,17 @@ public class ControlPanel {
 		for (int i = 0; i < humans.length; i++) { // teleport him
 			if (humans[i][nextAreaNum] == null) {
 				humans[i][nextAreaNum] = humans[j][prevAreaNum];
+				humans[j][prevAreaNum] = null;	//test
 				teleportedIndex = i;
 				break;
 			}
 		}
 		for (int i = j; i < humans.length - 1; i++) {
-			if (humans[i+1][prevAreaNum] != null)
-			humans[i][prevAreaNum] = humans[i + 1][prevAreaNum];
+			System.out.println("2o for sto teleport");
+			if (humans[i + 1][prevAreaNum] != null) {
+				humans[i][prevAreaNum] = humans[i + 1][prevAreaNum];
+				humans[i + 1][prevAreaNum] = null;
+			}
 		}
 		// getGrids()[nextAreaNum].getHumansOnGrid()
 		// getGrids()[prevAreaNum].getHumansOnGrid()
