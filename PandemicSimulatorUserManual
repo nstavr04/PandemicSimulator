@@ -1,6 +1,9 @@
 				User Manual for PandemicSimulator:
 	
 	The program takes the inputs from as a user input and not from a file.
+	StdDraw shows each time a single movement for each of the areas.
+	Once a movement has been made for all the areas, it repeats the process for all the movements.
+	For each area movement the program pops up a new window and closes the previous one. (For visualization purposes)
 	
 	The inputs that the program expects are as follows:
 	

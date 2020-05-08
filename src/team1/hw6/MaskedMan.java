@@ -41,31 +41,31 @@ public class MaskedMan extends Human implements Cloneable {
 					belongingGrid.setHasInfectedHuman(getNextX(), getNextY(), true);
 					if (getDirection() == 1)
 						StdDraw.picture(getNextX() + 0.5, getNextY() + 0.5,
-								"Images/PersonAboveViewSingleMASKEDUPWITHVIRUS.JPG", 0.7, 0.7);
+								"team1/hw6/PersonAboveViewSingleMASKEDUPWITHVIRUS.JPG", 0.7, 0.7);
 					else if (getDirection() == 2)
 						StdDraw.picture(getNextX() + 0.5, getNextY() + 0.5,
-								"Images/PersonAboveViewSingleMASKEDDOWNWITHVIRUS.JPG", 0.7, 0.7);
+								"team1/hw6/PersonAboveViewSingleMASKEDDOWNWITHVIRUS.JPG", 0.7, 0.7);
 					else if (getDirection() == 3)
 						StdDraw.picture(getNextX() + 0.5, getNextY() + 0.5,
-								"Images/PersonAboveViewSingleMASKEDLEFTWITHVIRUS.JPG", 0.7, 0.7);
+								"team1/hw6/PersonAboveViewSingleMASKEDLEFTWITHVIRUS.JPG", 0.7, 0.7);
 					else if (getDirection() == 4)
 						StdDraw.picture(getNextX() + 0.5, getNextY() + 0.5,
-								"Images/PersonAboveViewSingleMASKEDRIGHTWITHVIRUS.JPG", 0.7, 0.7);
+								"team1/hw6/PersonAboveViewSingleMASKEDRIGHTWITHVIRUS.JPG", 0.7, 0.7);
 				}
 
 				else {
 					if (getDirection() == 1)
-						StdDraw.picture(getNextX() + 0.5, getNextY() + 0.5, "Images/PersonAboveViewSingleMASKEDUP.JPG",
+						StdDraw.picture(getNextX() + 0.5, getNextY() + 0.5, "team1/hw6/PersonAboveViewSingleMASKEDUP.JPG",
 								0.7, 0.7);
 					else if (getDirection() == 2)
 						StdDraw.picture(getNextX() + 0.5, getNextY() + 0.5,
-								"Images/PersonAboveViewSingleMASKEDDOWN.JPG", 0.7, 0.7);
+								"team1/hw6/PersonAboveViewSingleMASKEDDOWN.JPG", 0.7, 0.7);
 					else if (getDirection() == 3)
 						StdDraw.picture(getNextX() + 0.5, getNextY() + 0.5,
-								"Images/PersonAboveViewSingleMASKEDLEFT.JPG", 0.7, 0.7);
+								"team1/hw6/PersonAboveViewSingleMASKEDLEFT.JPG", 0.7, 0.7);
 					else if (getDirection() == 4)
 						StdDraw.picture(getNextX() + 0.5, getNextY() + 0.5,
-								"Images/PersonAboveViewSingleMASKEDRIGHT.JPG", 0.7, 0.7);
+								"team1/hw6/PersonAboveViewSingleMASKEDRIGHT.JPG", 0.7, 0.7);
 
 				}
 
@@ -85,29 +85,29 @@ public class MaskedMan extends Human implements Cloneable {
 			// set it to the cell
 			belongingGrid.setHasInfectedHuman(getCurX(), getCurY(), true);
 			if (getDirection() == 1)
-				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "Images/PersonAboveViewSingleMASKEDUPWITHVIRUS.JPG",
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "team1/hw6/PersonAboveViewSingleMASKEDUPWITHVIRUS.JPG",
 						0.7, 0.7);
 			else if (getDirection() == 2)
-				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "Images/PersonAboveViewSingleMASKEDDOWNWITHVIRUS.JPG",
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "team1/hw6/PersonAboveViewSingleMASKEDDOWNWITHVIRUS.JPG",
 						0.7, 0.7);
 			else if (getDirection() == 3)
-				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "Images/PersonAboveViewSingleMASKEDLEFTWITHVIRUS.JPG",
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "team1/hw6/PersonAboveViewSingleMASKEDLEFTWITHVIRUS.JPG",
 						0.7, 0.7);
 			else if (getDirection() == 4)
 				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5,
-						"Images/PersonAboveViewSingleMASKEDRIGHTWITHVIRUS.JPG", 0.7, 0.7);
+						"team1/hw6/PersonAboveViewSingleMASKEDRIGHTWITHVIRUS.JPG", 0.7, 0.7);
 
 		} else {
 			if (getDirection() == 1)
-				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "Images/PersonAboveViewSingleMASKEDUP.JPG", 0.7, 0.7);
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "team1/hw6/PersonAboveViewSingleMASKEDUP.JPG", 0.7, 0.7);
 			else if (getDirection() == 2)
-				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "Images/PersonAboveViewSingleMASKEDDOWN.JPG", 0.7,
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "team1/hw6/PersonAboveViewSingleMASKEDDOWN.JPG", 0.7,
 						0.7);
 			else if (getDirection() == 3)
-				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "Images/PersonAboveViewSingleMASKEDLEFT.JPG", 0.7,
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "team1/hw6/PersonAboveViewSingleMASKEDLEFT.JPG", 0.7,
 						0.7);
 			else if (getDirection() == 4)
-				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "Images/PersonAboveViewSingleMASKEDRIGHT.JPG", 0.7,
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "team1/hw6/PersonAboveViewSingleMASKEDRIGHT.JPG", 0.7,
 						0.7);
 
 		}
@@ -120,28 +120,28 @@ public class MaskedMan extends Human implements Cloneable {
 	public void draw() {
 		if (super.isInfected() == true) {
 			if (getDirection() == 1)
-				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "Images/PersonAboveViewSingleMASKEDUPWITHVIRUS.JPG",
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "team1/hw6/PersonAboveViewSingleMASKEDUPWITHVIRUS.JPG",
 						0.7, 0.7);
 			else if (getDirection() == 2)
-				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "Images/PersonAboveViewSingleMASKEDDOWNWITHVIRUS.JPG",
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "team1/hw6/PersonAboveViewSingleMASKEDDOWNWITHVIRUS.JPG",
 						0.7, 0.7);
 			else if (getDirection() == 3)
-				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "Images/PersonAboveViewSingleMASKEDLEFTWITHVIRUS.JPG",
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "team1/hw6/PersonAboveViewSingleMASKEDLEFTWITHVIRUS.JPG",
 						0.7, 0.7);
 			else if (getDirection() == 4)
 				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5,
-						"Images/PersonAboveViewSingleMASKEDRIGHTWITHVIRUS.JPG", 0.7, 0.7);
+						"team1/hw6/PersonAboveViewSingleMASKEDRIGHTWITHVIRUS.JPG", 0.7, 0.7);
 		} else {
 			if (getDirection() == 1)
-				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "Images/PersonAboveViewSingleMASKEDUP.JPG", 0.7, 0.7);
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "team1/hw6/PersonAboveViewSingleMASKEDUP.JPG", 0.7, 0.7);
 			else if (getDirection() == 2)
-				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "Images/PersonAboveViewSingleMASKEDDOWN.JPG", 0.7,
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "team1/hw6/PersonAboveViewSingleMASKEDDOWN.JPG", 0.7,
 						0.7);
 			else if (getDirection() == 3)
-				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "Images/PersonAboveViewSingleMASKEDLEFT.JPG", 0.7,
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "team1/hw6/PersonAboveViewSingleMASKEDLEFT.JPG", 0.7,
 						0.7);
 			else if (getDirection() == 4)
-				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "Images/PersonAboveViewSingleMASKEDRIGHT.JPG", 0.7,
+				StdDraw.picture(getCurX() + 0.5, getCurY() + 0.5, "team1/hw6/PersonAboveViewSingleMASKEDRIGHT.JPG", 0.7,
 						0.7);
 
 		}
