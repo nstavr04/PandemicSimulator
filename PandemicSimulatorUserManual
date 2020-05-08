@@ -1,42 +1,42 @@
-			User Manual for PandemicSimulator:
-
-The program takes the inputs from as a user input and not from a file.
-
-The inputs that the program expects are as follows:
-
-1) The number of areas for the simulation. Must be at least 1.
-
-2) The width  for the i area. 				|										
-											|
-3) The height for the i area.				|  THESE INPUTS ARE ASKED AGAIN FOR EVERY AREA REMAINING.
-											|
-4) The amount of borders for the i area. 	|
-Must not exceed max grid borders			|
-
-5) The X coordinate for the i border of i area.						|	
-																	|
-6) The Y coordinate for the i border of i area.						| THESE INPUTS ARE ASKED AGAIN FOR ALL BORDERS OF FIRST AREA.
-																	| THEN THEY ARE ASKED AGAIN FOR EVERY AREA REMAINING.
-7) The area that you want the i border to teleport the human to.	|	
-
-8) The duration of the simulation.
-
-9) The number of humans of the simulation.
-
-10) The starting number of infected humans for the simulation.
-
-11) The percentage of a human moving.
-
-12) The percentage of a human having mask.
-
-13) The percentage of a human infecting another human.
-
-14) The percentage of a human infecting the ground
-
-15) The percentage of the ground infecting the human
-
-16) The percentage of the humans to be immune to the virus
-
-17) After how many moves the ground should clear of any infections
-
-StdDraw will load and when it finished the console will output the results.
+				User Manual for PandemicSimulator:
+	
+	The program takes the inputs from as a user input and not from a file.
+	
+	The inputs that the program expects are as follows:
+	
+	1) The number of areas for the simulation. Must be at least 1.
+	
+	2) The width  for the i area. 				|										
+												|
+	3) The height for the i area.				|  THESE INPUTS ARE ASKED AGAIN FOR EVERY AREA REMAINING.
+												|
+	4) The amount of borders for the i area. 	|
+	Must not exceed max grid borders			|
+	
+	5) The X coordinate for the i border of i area.						|	
+																		|
+	6) The Y coordinate for the i border of i area.						| THESE INPUTS ARE ASKED AGAIN FOR ALL BORDERS OF FIRST AREA.
+																		| THEN THEY ARE ASKED AGAIN FOR EVERY AREA REMAINING.
+	7) The area that you want the i border to teleport the human to.	|	
+	
+	8) The duration of the simulation.
+	
+	9) The number of humans of the simulation.
+	
+	10) The starting number of infected humans for the simulation.
+	
+	11) The percentage of a human moving.
+	
+	12) The percentage of a human having mask.
+	
+	13) The percentage of a human infecting another human.
+	
+	14) The percentage of a human infecting the ground
+	
+	15) The percentage of the ground infecting the human
+	
+	16) The percentage of the humans to be immune to the virus
+	
+	17) After how many moves the ground should clear of any infections
+	
+	StdDraw will load and when it finished the console will output the results.
