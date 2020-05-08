@@ -16,7 +16,8 @@
 	
 	8) The duration of the simulation must be a positive number.
 		
-	9) The number of humans of the simulation. Must not exceed the amount of cells on all grids combined.
+	9) The number of humans of the simulation. Must not exceed the amount of cells on all grids combined and must be a positive number.
+	   Humans cannot move on occupied nearby boxes. ( Cells ). Each cell only fits 1 human at a time.
 	
 	10) The starting number of infected humans for the simulation. Must be a positive number less or equal of the total amount of humans.
 	
@@ -35,21 +36,9 @@
 	16) The percentage of the humans to be immune to the virus. Must be a positive number and less or equal than 100.
 		Immune people cannot spread or get the virus.
 	
+	17) After how many moves the ground should clear of any infections. Must be a positive number.
 	
-	
-	16) After how many moves the ground should clear of any infections
-		
-		
-	
-	
-	3)	People must be equal or less than the environment boxes and must be a positive number.
-	
-	
-	5)	People cannot move on occupied nearby boxes.
-	
-	6)	All moves are coordinated by a single clock - timer.
-	
-	7)	All percentages given as arguments must be a positive number less or equal than 100.
+	18)	All moves are coordinated by a single clock - timer.
 	
 	
 	
