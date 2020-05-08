@@ -4,7 +4,7 @@ package team1.hw6;
  * This class acts as a ControlPanel making it able to control from the
  * PandemicSimlator - Main the actions taken between humans and grids
  * 
- * @author nstavr04.mvasil17
+ * @author team1
  *
  */
 public class ControlPanel {

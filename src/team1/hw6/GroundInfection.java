@@ -5,13 +5,14 @@ import edu.princeton.cs.introcs.StdDraw;
 /**
  * Creates a ground infection object
  * 
- * @author nstavr04.mvasil01
+ * @author team1
  */
 public class GroundInfection extends Infection {
 
 	/**
-	 * This constructor takes as input 2 integers representing the coordinates
-	 * x and y of the infection
+	 * This constructor takes as input 2 integers representing the coordinates x and
+	 * y of the infection
+	 * 
 	 * @param x
 	 * @param y
 	 */
@@ -19,9 +20,10 @@ public class GroundInfection extends Infection {
 		super();
 		drawInfection(x, y);
 	}
-	
+
 	/**
 	 * This private method draws the infection on the grid
+	 * 
 	 * @param x
 	 * @param y
 	 */

@@ -3,7 +3,7 @@ package team1.hw6;
 /**
  * This class creates an infection object
  * 
- * @author nstavr04.mvasil01
+ * @author team1
  *
  */
 public class Infection {

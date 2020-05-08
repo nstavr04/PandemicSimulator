@@ -1,9 +1,10 @@
 package team1.hw6;
+
 /**
  * This exception class is used for exception handling when the odds inputs
  * parameters have an unavailable percentage - bigger than 100
  * 
- * @author nstavr04.mvasil01
+ * @author team1
  *
  */
 public class ExceptionUnavailablePercentage extends Exception {

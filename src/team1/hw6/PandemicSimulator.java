@@ -8,7 +8,7 @@ import edu.princeton.cs.introcs.StdDraw;
  * The main class of the program. Gets all the input arguments and calls the
  * right methods
  * 
- * @author nstavr04.mvasil01
+ * @author team1
  *
  */
 public class PandemicSimulator {

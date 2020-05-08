@@ -4,7 +4,7 @@ package team1.hw6;
  * This exception class is used for exception handling when the infected people
  * given at the start of the program are more than the actual humans
  * 
- * @author nstavr04.mvasil17
+ * @author team1
  *
  */
 public class ExceptionInfMoreThanHumans extends Exception {

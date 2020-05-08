@@ -4,7 +4,7 @@ package team1.hw6;
  * A time class representing the time needed to leave the infection from the
  * ground
  * 
- * @author nstavr04.mvasil01
+ * @author team1
  *
  */
 public class Time {

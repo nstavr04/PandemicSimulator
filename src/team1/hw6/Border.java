@@ -3,7 +3,7 @@ package team1.hw6;
 /**
  * This class represents a border on a grid
  * 
- * @author nstavr04.mvasil17
+ * @author team1
  *
  */
 public class Border {
@@ -25,7 +25,7 @@ public class Border {
 	public Border(int[] borderX, int[] borderY, int[] nextArea, int borderAmount, int xGrid, int yGrid) {
 
 		this.borderAmount = borderAmount;
-		
+
 		this.borderX = new int[borderAmount];
 		this.borderX = borderX;
 

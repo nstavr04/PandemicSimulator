@@ -6,7 +6,7 @@ import edu.princeton.cs.introcs.StdDraw;
  * This class represents the grid shown on the program. Its responsible for
  * keeping the data in it up to date.
  * 
- * @author nstavr04.mvasil01
+ * @author team1
  *
  */
 public class Grid {

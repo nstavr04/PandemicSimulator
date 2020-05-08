@@ -6,7 +6,7 @@ import edu.princeton.cs.introcs.StdDraw;
  * This abstract class represents a Human object. Its responsible for all the
  * properties a human have and all the abilities he has and moves that can make
  * 
- * @authors nstavr04.mvasil01
+ * @authors team1
  */
 public abstract class Human {
 

@@ -6,7 +6,7 @@ import edu.princeton.cs.introcs.StdDraw;
  * This class extends Human and creates a man class. Responsible for his
  * movements showing on grid.
  * 
- * @author nstavr04.mvasil01
+ * @author team1
  */
 public class Man extends Human implements Cloneable {
 

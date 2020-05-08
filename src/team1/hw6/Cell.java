@@ -4,7 +4,7 @@ package team1.hw6;
  * This class represents a single Cell on the Grid. Every single one has its own
  * properties.
  * 
- * @author nstavr04.mvasil01
+ * @author team1
  */
 public class Cell {
 
@@ -51,14 +51,14 @@ public class Cell {
 	public boolean isInfected() {
 		return infected;
 	}
-	
+
 	/**
 	 * @param infected set the value of infected
 	 */
 	public void setInfected(int x, int y, boolean infected) {
 		this.infected = infected;
 		inf = new GroundInfection(x, y);
-		
+
 	}
 
 	/**

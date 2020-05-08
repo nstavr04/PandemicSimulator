@@ -4,7 +4,7 @@ package team1.hw6;
  * This exception class is used for exception handling when the humans are more
  * than what the grid can fit
  * 
- * @author nstavr04.mvasil01
+ * @author team1
  *
  */
 public class ExceptionHumanMoreThanGrid extends Exception {
