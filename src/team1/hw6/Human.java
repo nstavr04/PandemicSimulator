@@ -259,7 +259,7 @@ public abstract class Human {
 	public void chanceToBrandTheSpot() {
 		// only if the human is already infected
 		if (infected == true) {
-			if ((int) (Math.random() * 101) <= humanInfGroundPer) {
+			if ((int) (Math.random() * 101) < humanInfGroundPer) {
 				belongingGrid.setInfectionPos(curX, curY, infected);
 			}
 		}
@@ -282,7 +282,7 @@ public abstract class Human {
 		if (belongingGrid.getInfectionPos(curX, curY) && !infected) {
 			// if the human is not immune
 			if (!immune) {
-				if ((int) (Math.random() * 101) <= groundInfHumanPer) {
+				if ((int) (Math.random() * 101) < groundInfHumanPer) {
 					infected = true;
 					infectedCounter++;
 					System.out.println("A man has been infected from the ground");
@@ -306,7 +306,7 @@ public abstract class Human {
 							// If it is NOT a free cell
 							if (belongingGrid.getBoardPos(i, j)) {
 								if (belongingGrid.getHasInfectedHuman(i, j)) {
-									if ((int) (Math.random() * 101) <= humanInfHumanPer) {
+									if ((int) (Math.random() * 101) < humanInfHumanPer) {
 										this.infected = true;
 										infectedCounter++;
 										System.out.println("A man has been infected from a Human");

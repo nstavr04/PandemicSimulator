@@ -174,7 +174,7 @@ public class PandemicSimulator {
 			// well as the nextArea
 			for (int j = 0; j < borderAmount[i]; j++) {
 
-				System.out.println("Give the X coordinate for border " + (j + 1) + " of area " + (i + 1));
+again:			System.out.println("Give the X coordinate for border " + (j + 1) + " of area " + (i + 1));
 
 				do {
 					try {
@@ -186,7 +186,7 @@ public class PandemicSimulator {
 
 						if (borderX[j][i] >= areaSizes[i][0])
 							throw new ExceptionNegativeValue("Coordinate out of bounadries. Try again: ");
-
+						
 						continueInput = false;
 
 					} catch (NumberFormatException e) {
@@ -211,6 +211,12 @@ public class PandemicSimulator {
 
 						if (borderY[j][i] >= areaSizes[i][1])
 							throw new ExceptionNegativeValue("Coordinate out of bounadries. Try again: ");
+						
+						if ((borderX[j][i] != 0 && borderX[j][i] != (areaSizes[i][0]-1)) && (borderY[j][i] != 0 && borderY[j][i] != (areaSizes[i][1]-1))) {
+							System.out.println("The point must be on the border of the grid " + (areaSizes[i][1]-1) + " or 0");
+
+						}
+						//throw new ExceptionNegativeValue("The point must be on the border of the grid " + (areaSizes[i][1]-1) + " or 0");
 
 						continueInput = false;
 
