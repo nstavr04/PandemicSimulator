@@ -9,6 +9,8 @@
 	4) For better display purposes height must be smaller or equal to width.	
 		
 	5) The amount of borders for the i area. Must not exceed max grid borders.
+	   Borders teleport the human in a random free cell of the inputed area.
+	   If no cell is free, the human doesnt get teleported.
 	
 	6) The X and Y coordinate for the i border of i area must be within circumference of the grid
 		
