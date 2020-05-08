@@ -18,25 +18,23 @@
 	
 	9) The starting number of infected humans for the simulation. Must be a positive number less or equal of the total amount of humans.
 	
+	10) The percentage of a human moving.
+	
 		
 		
 		
 		
 	1)	The environment has a lower chance of infecting the person than a person another person.
 	
-	2)	Infected people on the start of the program must be at least one and less or equal to all humans on the simulation.
 	
 	3)	People must be equal or less than the environment boxes and must be a positive number.
 	
-	4)	TimeUnits must be a positive number.
 	
 	5)	People cannot move on occupied nearby boxes.
 	
 	6)	All moves are coordinated by a single clock - timer.
 	
 	7)	All percentages given as arguments must be a positive number less or equal than 100.
-	 
-	8)  For better display purposes width must not surpass 50,height must not surpass 40 and they must be a positive number.
 
 	9)	For better display purposes height must be smaller or equal to width.
 	
