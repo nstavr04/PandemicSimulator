@@ -7,16 +7,16 @@ The inputs that the program expects are as follows:
 1) The number of areas for the simulation. Must be at least 1.
 
 2) The width  for the i area. 				|										
-												|
+											|
 3) The height for the i area.				|  THESE INPUTS ARE ASKED AGAIN FOR EVERY AREA REMAINING.
-												|
+											|
 4) The amount of borders for the i area. 	|
-Must not exceed max grid borders				|
+Must not exceed max grid borders			|
 
-5) The X coordinate for the i border of i area.					|	
-																		|
-6) The Y coordinate for the i border of i area.					| THESE INPUTS ARE ASKED AGAIN FOR ALL BORDERS OF FIRST AREA.
-																		| THEN THEY ARE ASKED AGAIN FOR EVERY AREA REMAINING.
+5) The X coordinate for the i border of i area.						|	
+																	|
+6) The Y coordinate for the i border of i area.						| THESE INPUTS ARE ASKED AGAIN FOR ALL BORDERS OF FIRST AREA.
+																	| THEN THEY ARE ASKED AGAIN FOR EVERY AREA REMAINING.
 7) The area that you want the i border to teleport the human to.	|	
 
 8) The duration of the simulation.
