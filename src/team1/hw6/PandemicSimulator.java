@@ -124,31 +124,35 @@ public class PandemicSimulator {
 			// Find the max number of humans allowed throughout all grids
 			maxHumanNum += areaSizes[i][0] * areaSizes[i][1];
 
-			System.out.println("Give border amount for area " + (i + 1) + " :");
+			if (areaNum != 1) {
 
-			do {
-				try {
+				System.out.println("Give border amount for area " + (i + 1) + " :");
 
-					borderAmount[i] = Integer.parseInt(scan.nextLine());
+				do {
+					try {
 
-					if (borderAmount[i] < 0)
-						throw new ExceptionNegativeValue();
+						borderAmount[i] = Integer.parseInt(scan.nextLine());
 
-					if (borderAmount[i] > (areaSizes[i][0] * 2 + areaSizes[i][1] * 2 - 4))
-						throw new ExceptionNegativeValue(
-								"You have exceeded the maximum amount of borders. Try again: ");
+						if (borderAmount[i] < 0)
+							throw new ExceptionNegativeValue();
 
-					continueInput = false;
+						if (borderAmount[i] > (areaSizes[i][0] * 2 + areaSizes[i][1] * 2 - 4))
+							throw new ExceptionNegativeValue(
+									"You have exceeded the maximum amount of borders. Try again: ");
 
-				} catch (NumberFormatException e) {
-					System.out.println("Wrong border amount input. Must be a positive number. Try again: ");
-				} catch (ExceptionNegativeValue e) {
-					System.out.println(e.getMessage());
-				}
+						continueInput = false;
 
-			} while (continueInput);
+					} catch (NumberFormatException e) {
+						System.out.println("Wrong border amount input. Must be a positive number. Try again: ");
+					} catch (ExceptionNegativeValue e) {
+						System.out.println(e.getMessage());
+					}
 
-			continueInput = true;
+				} while (continueInput);
+
+				continueInput = true;
+
+			}
 
 		}
 
@@ -167,95 +171,95 @@ public class PandemicSimulator {
 		int[][] borderY = new int[maxBorderAmount][areaNum];
 		int nextArea[][] = new int[maxBorderAmount][areaNum];
 
-		// For each area
-		for (int i = 0; i < areaNum; i++) {
+		if (areaNum != 1) {
 
-			// Give for every single border of the certain area the x , y coordinates as
-			// well as the nextArea
-			for (int j = 0; j < borderAmount[i]; j++) {
+			// For each area
+			for (int i = 0; i < areaNum; i++) {
 
-again:			System.out.println("Give the X coordinate for border " + (j + 1) + " of area " + (i + 1));
+				// Give for every single border of the certain area the x , y coordinates as
+				// well as the nextArea
+				for (int j = 0; j < borderAmount[i]; j++) {
 
-				do {
-					try {
+					do {
+						try {
 
-						borderX[j][i] = Integer.parseInt(scan.nextLine());
+							System.out.println(
+									"Give the X coordinate for border " + (j + 1) + " of area " + (i + 1) + ":");
 
-						if (borderX[j][i] < 0)
-							throw new ExceptionNegativeValue();
+							borderX[j][i] = Integer.parseInt(scan.nextLine());
 
-						if (borderX[j][i] >= areaSizes[i][0])
-							throw new ExceptionNegativeValue("Coordinate out of bounadries. Try again: ");
-						
-						continueInput = false;
+							if (borderX[j][i] < 0)
+								throw new ExceptionNegativeValue();
 
-					} catch (NumberFormatException e) {
-						System.out.println("Wrong border coordinate input. Must be a positive number. Try again: ");
-					} catch (ExceptionNegativeValue e) {
-						System.out.println(e.getMessage());
-					}
+							if (borderX[j][i] >= areaSizes[i][0])
+								throw new ExceptionNegativeValue("Coordinate out of bounadries. Try again: ");
 
-				} while (continueInput);
+							System.out.println(
+									"Give the Y coordinate for border " + (j + 1) + " of area " + (i + 1) + ":");
 
-				continueInput = true;
+							borderY[j][i] = Integer.parseInt(scan.nextLine());
 
-				System.out.println("Give the Y coordinate for border " + (j + 1) + " of area " + (i + 1));
+							if (borderY[j][i] < 0)
+								throw new ExceptionNegativeValue();
 
-				do {
-					try {
+							if (borderY[j][i] >= areaSizes[i][1])
+								throw new ExceptionNegativeValue("Coordinate out of bounadries. Try again: ");
 
-						borderY[j][i] = Integer.parseInt(scan.nextLine());
+							if ((borderX[j][i] != 0 && borderX[j][i] != (areaSizes[i][0] - 1))
+									&& (borderY[j][i] != 0 && borderY[j][i] != (areaSizes[i][1] - 1)))
+								throw new ExceptionNegativeValue("The point must be on the circumference of the area.");
 
-						if (borderY[j][i] < 0)
-							throw new ExceptionNegativeValue();
+							// Checking that the border doesnt already exist
+							for (int k = 0; k < j; k++) {
+								if (borderX[j][i] == borderX[k][i] && borderY[j][i] == borderY[k][i])
+									throw new ExceptionNegativeValue(
+											"Border already exist. Please give new coordinates for border: ");
+							}
 
-						if (borderY[j][i] >= areaSizes[i][1])
-							throw new ExceptionNegativeValue("Coordinate out of bounadries. Try again: ");
-						
-						if ((borderX[j][i] != 0 && borderX[j][i] != (areaSizes[i][0]-1)) && (borderY[j][i] != 0 && borderY[j][i] != (areaSizes[i][1]-1))) {
-							System.out.println("The point must be on the border of the grid " + (areaSizes[i][1]-1) + " or 0");
+							continueInput = false;
 
+						} catch (NumberFormatException e) {
+							System.out.println("Wrong border coordinate input. Must be a positive number. Try again: ");
+						} catch (ExceptionNegativeValue e) {
+							System.out.println(e.getMessage());
 						}
-						//throw new ExceptionNegativeValue("The point must be on the border of the grid " + (areaSizes[i][1]-1) + " or 0");
 
-						continueInput = false;
+					} while (continueInput);
 
-					} catch (NumberFormatException e) {
-						System.out.println("Wrong border coordinate input. Must be a positive number. Try again: ");
-					} catch (ExceptionNegativeValue e) {
-						System.out.println(e.getMessage());
-					}
+					continueInput = true;
 
-				} while (continueInput);
+					System.out.println("Give the area that this border will teleport the human to:");
 
-				continueInput = true;
+					do {
+						try {
 
-				System.out.println("Give the area that this border will teleport the human to: [1 - " + areaNum + "]:");
+							nextArea[j][i] = Integer.parseInt(scan.nextLine());
+							// To get the right area number
+							nextArea[j][i]--;
 
-				do {
-					try {
+							if (nextArea[j][i] == i)
+								throw new ExceptionNegativeValue(
+										"Human cannot be teleported to the same area. Try again:");
 
-						nextArea[j][i] = Integer.parseInt(scan.nextLine());
-						// To get the right area number
-						nextArea[j][i]--;
+							if (nextArea[j][i] < 0)
+								throw new ExceptionNegativeValue();
 
-						if (nextArea[j][i] < 0)
-							throw new ExceptionNegativeValue();
+							if (nextArea[j][i] >= areaNum)
+								throw new ExceptionNegativeValue("Not valid area. Try again: ");
 
-						if (nextArea[j][i] >= areaNum)
-							throw new ExceptionNegativeValue("Not valid area. Try again: ");
+							continueInput = false;
 
-						continueInput = false;
+						} catch (NumberFormatException e) {
+							System.out.println("Wrong area input. Must be a number within the boundaries. Try again: ");
+						} catch (ExceptionNegativeValue e) {
+							System.out.println(e.getMessage());
+						}
 
-					} catch (NumberFormatException e) {
-						System.out.println("Wrong area input. Must be a number within the boundaries. Try again: ");
-					} catch (ExceptionNegativeValue e) {
-						System.out.println(e.getMessage());
-					}
+					} while (continueInput);
 
-				} while (continueInput);
+					continueInput = true;
 
-				continueInput = true;
+				}
 
 			}
 

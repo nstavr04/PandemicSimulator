@@ -405,7 +405,7 @@ public abstract class Human {
 
 	/**
 	 * @return the area that the human is supposed to go if in border, otherwise
-	 * return -1
+	 *         return -1
 	 */
 	public int isInBorder() {
 		return this.belongingGrid.isInBorder(curX, curY);

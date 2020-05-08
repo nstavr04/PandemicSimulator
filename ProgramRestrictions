@@ -1,5 +1,27 @@
 								PROGRAM RESTRICTIONS
 		
+	1) The number of areas for the simulation. Must be at least 1.	
+		
+	2) The width for the i area. Must be lower or equal than 50 and above 0.
+	
+	3) The height for the i area. Must be lower or equal than 40 and above 0.		
+		
+	4) The amount of borders for the i area. Must not exceed max grid borders.
+	
+	5) The X and Y coordinate for the i border of i area must be within circumference of the grid
+		
+	6) The area that you want the i border to teleport the human to. Must be an area different from the current one.
+	
+	7) The duration of the simulation must be a positive number.
+		
+	8) The number of humans of the simulation. Must not exceed the amount of cells on all grids combined.
+	
+	9) The starting number of infected humans for the simulation. Must be a positive number less or equal of the total amount of humans.
+	
+		
+		
+		
+		
 	1)	The environment has a lower chance of infecting the person than a person another person.
 	
 	2)	Infected people on the start of the program must be at least one and less or equal to all humans on the simulation.

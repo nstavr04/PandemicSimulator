@@ -38,8 +38,6 @@ public class Grid {
 		width = x;
 		height = y;
 		humansOnGrid = 0;
-		// Set the proper dimentions the first time
-		setDimentions(width, height);
 		// Draw the grid lines the first time
 		drawGridLines(width, height);
 		// Create the cells the first time
